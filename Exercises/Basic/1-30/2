@@ -1,0 +1,14 @@
+internal class Exercise
+    {
+        /* Write a C# Sharp program to print the sum of two numbers.
+         * */
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your first number: ");
+            int firstNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter your second number: ");
+            int secondNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Sum of your numbers is " + (firstNumber + secondNumber));
+
+        }
+    }
