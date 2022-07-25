@@ -1,0 +1,14 @@
+    internal class Exercise
+    {
+        /* Write a C# Sharp program to print the division of two numbers.
+         * */
+        static void Main(string[] args)
+        {
+            Console.Write("Enter divided number: ");
+            int firstNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter your divisor: ");
+            int secondNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Division of your numbers is " + (firstNumber / secondNumber));
+
+        }
+    }
