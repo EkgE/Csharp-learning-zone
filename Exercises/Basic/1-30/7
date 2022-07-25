@@ -1,0 +1,29 @@
+    internal class Exercise
+    {
+        /* Write a C# Sharp program to print on screen the output of adding, subtracting, 
+         * multiplying and dividing of two numbers which will be entered by the user.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your first number: ");
+            int firstNumber = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter your second number: ");
+            int secondNumber = int.Parse(Console.ReadLine());
+            int sum = firstNumber + secondNumber;
+            int subtract = firstNumber - secondNumber;
+            int division = firstNumber / secondNumber;
+            int multiplication = firstNumber * secondNumber;
+            int remainder = firstNumber % secondNumber; 
+
+            Console.WriteLine("Sum of your numbers is " + sum);
+            Console.WriteLine("Subtraction of your numbers is " + subtract);
+            Console.WriteLine("Division of your numbers is " + division);
+            Console.WriteLine("Multiplication of your numbers is " + multiplication);
+            Console.WriteLine("Remainder of your numbers is " + remainder);
+
+
+
+        }
+    }
