@@ -1,0 +1,20 @@
+    internal class Exercise
+    {
+        /* Write a C# Sharp program to swap two numbers.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your first number: ");
+            String firstNumber = Console.ReadLine();
+            Console.Write("Enter your second number: ");
+            String secondNumber = Console.ReadLine();
+            String temp = firstNumber;
+            firstNumber = secondNumber;
+            secondNumber = temp;
+            Console.WriteLine("After swapping");
+            Console.WriteLine("Your first number after swapping: " + firstNumber);
+            Console.WriteLine("Your second number after swapping: " + secondNumber);
+
+        }
+    }
