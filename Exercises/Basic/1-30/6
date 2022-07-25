@@ -1,0 +1,21 @@
+internal class Exercise
+    {
+        /* Write a C# Sharp program to print the output of multiplication
+         * of three numbers which will be entered by the user
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your first number: ");
+            int firstNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter your second number: ");
+            int secondNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter your third number: ");
+            int thirdNumber = int.Parse(Console.ReadLine());
+
+            int outputNultiplication = firstNumber * secondNumber * thirdNumber;
+            Console.WriteLine("Multiplication of inputed number is " + outputNultiplication);
+
+
+        }
+    }
