@@ -1,0 +1,21 @@
+    internal class Exercise
+    {
+        /* Write a C# Sharp program that takes four numbers as input to calculate and print the average.
+         */
+
+        static void Main(string[] args)
+        {
+            int[] arrayInt = new int[4];
+            int sum = 0;
+            for(int i = 0; i < arrayInt.Length; i++)
+            {
+                Console.Write("Enter your number {0}: ", i + 1);
+                arrayInt[i] = int.Parse(Console.ReadLine());
+                sum += arrayInt[i];
+            }
+            Console.WriteLine("Average of 4 inputed numbers is " + (sum / 4));
+
+
+
+        }
+    }
