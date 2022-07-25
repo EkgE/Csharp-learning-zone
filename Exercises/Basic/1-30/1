@@ -1,0 +1,12 @@
+    internal class Exercise
+    {
+        /*Write a C# Sharp program to print Hello and your name in a separate line.
+         * */
+        static void Main(string[] args)
+        {
+            Console.Write("Enter our name: ");
+            String name = Console.ReadLine();
+            Console.WriteLine("Hello, " + name);
+
+        }
+    }
