@@ -1,0 +1,18 @@
+    internal class Exercise
+    {
+        /* Write a C# Sharp program to that takes three numbers(x,y,z) as input and print the output of (x+y)·z and x·y + y·z.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your x number: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("Enter your y number: ");
+            int y = int.Parse(Console.ReadLine());
+            Console.Write("Enter your z number: ");
+            int z = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("(x + y)* z = " + (x + y) * z);
+            Console.WriteLine(" x·y + y·z = " + (x*y + y*z));
+        }
+    }
