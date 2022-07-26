@@ -1,0 +1,13 @@
+    internal class Exercise
+    {
+        /* Write a C# Sharp program that takes an age (for example 20) as input and prints something as "You look older than 20.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your age: ");
+            int input = int.Parse(Console.ReadLine());
+            Console.WriteLine("You don't look like " + input);
+            
+        }
+    }
