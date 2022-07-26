@@ -1,0 +1,17 @@
+    internal class Exercise
+    {
+        /* Write a C# program to compute the sum of two given integers, if two values are equal then return the triple of their sum
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your first number: ");
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter your second number: ");
+            int secondNumber = Convert.ToInt32(Console.ReadLine());
+            int sum = firstNumber + secondNumber;
+            int output = firstNumber == secondNumber ? sum * 3 : sum;
+            Console.WriteLine("Your output is: " + output);
+
+        }
+    }
