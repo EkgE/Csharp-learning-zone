@@ -1,0 +1,16 @@
+    internal class Exercise
+    {
+        /* Write a C# program to check two given integers and return true if one is negative and one is positive.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your first number: ");
+            int firstNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter your second number: ");
+            int secondNumber = int.Parse(Console.ReadLine());
+            bool output = firstNumber !> 0 && secondNumber < 0;
+            Console.WriteLine(output);
+
+        }
+    }
