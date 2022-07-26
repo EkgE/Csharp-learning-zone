@@ -1,0 +1,16 @@
+    internal class Exercise
+    {
+        /* Write a C# program to create a new string from a given string (length 1 or more ) 
+         * with the first character added at the front and back.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            String sentence = Console.ReadLine();
+            Console.Write("Enter new character: ");
+            char character = Convert.ToChar(Console.Read());
+            Console.WriteLine("Your new sentence is {0}{1}{0}", character, sentence);
+        }
+
+    }
