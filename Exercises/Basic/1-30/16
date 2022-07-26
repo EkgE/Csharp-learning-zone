@@ -1,0 +1,18 @@
+internal class Exercise
+    {
+        /* Write a C# program to create a new string from a given string
+         * where the first and last characters will change their positions.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            String sentence = Console.ReadLine();
+            String newSentence = sentence[sentence.Length - 1] + sentence.Substring(1, sentence.Length - 2) + sentence[0];
+            Console.Write(" new sentence is " + newSentence);
+           
+           
+            
+        }
+
+    }
