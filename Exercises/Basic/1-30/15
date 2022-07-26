@@ -1,0 +1,19 @@
+    internal class Exercise
+    {
+        /* Write a C# program remove specified a character from a non-empty string using index of a character.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            String sentence = Console.ReadLine();
+            Console.Write("Enter index of removed character: ");
+            int index = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("New sentence is: " + sentence.Remove(index, 1));
+           
+           
+            
+        }
+
+    }
