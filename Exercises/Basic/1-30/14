@@ -1,0 +1,18 @@
+    internal class Exercise
+    {
+        /* Write a C# program to convert from Celsius degrees to Kelvin and Fahrenheit.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter Celsius: ");
+            double celsius = double.Parse(Console.ReadLine());
+            double fahrenheit = celsius * 18 / 10 + 32;
+            double kelvin = celsius + 273;
+            Console.WriteLine(celsius + " Celsius is equal " + fahrenheit + " Fahrenheit and " + kelvin + " Kelvin ");
+           
+           
+            
+        }
+
+    }
