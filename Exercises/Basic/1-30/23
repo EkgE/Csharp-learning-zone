@@ -1,0 +1,17 @@
+    internal class Exercise
+    {
+        /* Write a C# program to convert a given string into lowercase.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            String input = Console.ReadLine();
+            String lowercaseInput = input.ToLower();
+
+            Console.WriteLine("Your lowercase sentence is: " + lowercaseInput);
+
+
+
+        }
+    }
