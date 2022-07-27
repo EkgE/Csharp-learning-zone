@@ -1,0 +1,54 @@
+    internal class Exercise
+    {
+        /* Compute the sum of the first 500 prime numbers
+         */
+
+        static void Main(string[] args)
+        {
+
+            int counterSum = 0;
+            int prime = 2;
+            int counter = 0;
+            while (counter < 500)
+            {
+                if (IsPrime1(prime))
+                {
+                    counterSum += prime;
+                    counter++;
+                }
+                prime++;
+            }
+
+
+          Console.WriteLine("Sum of 500 firstPrime numbers is equal " + counterSum);
+
+            //prime1 execution time 00:00:00.0257395
+            //prime2 execution time at time 00:00:00.0005165
+        }
+        static bool IsPrime1(int number) 
+        {
+            int counter = 0;
+            for (int i = 2; i <= number / 2; i++)
+            {
+                if (number % i == 0 && number != i)
+                {
+                    counter++;
+                }
+            }
+            return counter == 0;
+        }
+        static bool IsPrime(int number)
+        {
+            if (number <= 1) return false;
+            if (number == 2) return true;
+            if (number % 2 == 0) return false;
+
+            var boundary = (int)Math.Floor(Math.Sqrt(number));
+
+            for (int i = 3; i <= boundary; i += 2)
+                if (number % i == 0)
+                    return false;
+
+            return true;
+        }
+    }
