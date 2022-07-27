@@ -1,0 +1,27 @@
+    internal class Exercise
+    {
+        /* Write a C# program to find the longest word in a string.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            String input = Console.ReadLine(); 
+            String[] stringArray = input.Split(' ', ',','.');
+
+            String longestString = "";
+            int lettersCounter = 0;
+            foreach(String str in stringArray)
+            {
+                if(str.Length > lettersCounter)
+                {
+                    longestString = str;
+                    lettersCounter = str.Length;
+                }
+            }
+            Console.WriteLine("Longest word in your sentence was: " + longestString);
+
+
+
+        }
+    }
