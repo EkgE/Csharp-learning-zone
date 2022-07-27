@@ -1,0 +1,22 @@
+    internal class Exercise
+    {
+        /* Write a C# program and compute the sum of the digits of an integer.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your number: ");
+            long input = Convert.ToInt64(Console.ReadLine());
+            
+            
+            long sum = 0;
+            while(input > 0)
+            {
+                sum += input % 10;
+                input /= 10;
+            }
+            Console.WriteLine("Sum of digits in your number equal " + sum);
+        }
+
+
+    }
