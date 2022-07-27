@@ -1,0 +1,17 @@
+    internal class Exercise
+    {
+        /* Write a C# program to check if an given integer is within 20 of 100 or 200.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter your number: ");
+            int input = Convert.ToInt32(Console.ReadLine());
+
+            bool output = Math.Abs(input - 100) <= 20 || Math.Abs(input - 200) <= 20;
+            Console.WriteLine(output);
+
+
+
+        }
+    }
