@@ -1,0 +1,21 @@
+    internal class Exercise
+    {
+        /* Write a C# program to reverse the words of a sentence.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            string sentence = Console.ReadLine();
+            string[ ]sentenceArray = sentence.Split(new[] {' '});
+            Array.Reverse(sentenceArray);
+            foreach(string s in sentenceArray)
+            {
+                Console.Write(s + " ");
+            }
+
+
+
+
+        }
+    }
