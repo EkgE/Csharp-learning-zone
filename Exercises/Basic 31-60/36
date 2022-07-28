@@ -1,0 +1,25 @@
+    internal class Exercise
+    {
+        /* Write a C# program to check if an integer (from the two given integers) is in the range -10 to 10.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter first number: ");
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter second number: ");
+            int secondNumber = Convert.ToInt32(Console.ReadLine());
+            bool checker = (firstNumber >= -10 && firstNumber <= 10) || (secondNumber >= -10 && secondNumber <= 10);
+            Console.WriteLine("output is {0}", checker);
+
+
+
+
+
+
+
+
+        }
+
+
+    }
