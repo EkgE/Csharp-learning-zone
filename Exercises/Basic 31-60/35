@@ -1,0 +1,18 @@
+    internal class Exercise
+    {
+        /* Write a C# program to check two given numbers where one is less than 100 and other is greater than 200.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter first number: ");
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter second number: ");
+            int secondNumber = Convert.ToInt32(Console.ReadLine());
+            bool checker = firstNumber < 100 && secondNumber > 200;
+            Console.WriteLine("output is {0}", checker);
+
+        }
+
+
+    }
