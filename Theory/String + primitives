@@ -1,0 +1,85 @@
+using System;
+using System.Text; //needed for String Builder 
+
+//Console.WriteLine("Hello, World!"); // from 6#.NET
+//before it should be written like this 
+namespace Theory
+{ //hot key for build f5
+    internal class TheoryClass
+    {
+        static void Main(string[] args) //entry point to project 
+        {
+            //Console.WriteLine("Hello World!"); //writing and ending the line
+            //Console.Write("Hello"); //writing without ending a line, next console output will be on the same line
+            //Console.ReadLine(); // inputing to console //return String 
+
+            #region primitives 
+            //Cshasp is type language, which means that type of variable have to written while declaration 
+
+            string primitivesString = "Something";
+            char primitiveChar = 'K';
+            char primitiveCharUnicode = '\u007F'; // char but written in unicode
+
+            bool primitiveBool = false; //true or false 
+
+            //DataTime not primitives!!!
+            DateTime primitivesDateTime = DateTime.Now; // this one contains time of program executing 
+            //DataTime class that contain specified time //
+            DateTime primitivesDateTime2 = new DateTime(1997, 07, 04);
+
+            byte primitivesByte = 126; // 8 bits //unsigned // range 0 - 255
+            sbyte primitivesSbyte = -126; //8 bits //signed // range -128 - 127
+            short primitiveShort = 126; // 16 bits //signed // range -32,768 - 32,767
+            ushort primitiveUshort = 126; // 16 bits //unsigned // range 0 - 65,535 
+            int primitiveInt = 126; // 32 bits // signed // range -2147483648
+            uint primitiveUint = 126; // 32 bits // unsigned // range 0 - 4mld 
+            long primitiveLong = 126; // 64 bits // signed // range big xdd
+            ulong primitiveUlong = 126; // 64 bits // unsigned // range 2xlong but without negatives 
+
+            float primitivesFloat = 1.26f; //32 bits // 9 digits precision // should ended with f or F 
+            double primitivesDouble = 1.26d; //64 bits // 15-17 digits precision //should end with d or D but it's not necessary
+            decimal primitivesDecimal = 1.26m;  //128 bits // 28-29 digits precision // should end with m or M
+
+
+
+            #endregion
+
+            #region String 
+            //String is a reference type that is builded with ordered 
+            // String variable can contain 1mld of characters or 2gb memory
+
+            string stringDeclaration;
+            string stringInitialization = "Hello";
+            string stringNull = null; //can hold null 
+            string stringEmpty = string.Empty; // string empty != null
+
+            string stringEscape1 = "Hello \"konrad\" "; //backslash before " allows to use "" in a sentence 
+            string stringEscape2 = "c:\\windows"; // backslash before backslash allows to use backslash in a sentence 
+            string stringEscape3 = @"c\windows\folder\usage"; //@ use string literally, without escape characters within it 
+            //however @ doesn't work on "" 
+            string stringEscape4 = @"hello""konrad"; //hello"konrad
+
+            string stringContatynation1 = string.Concat("Hello, ", "World");
+            //string concat using Concat string method 
+            //multiple string can be used 
+            string stringContatynatio2 = "Hello, " + "World"; // work's as above
+
+            string stringInterpolated = $"{"something"} is in the kitchen"; //interpolation of string allows to use string within a string 
+            // $ before string is must have
+            // in {} we call string which value will be used to create new one 
+
+            // String is read only, can't be mutated after initialization  
+            string stringReadOnly = "Hello";
+            stringReadOnly += ", World"; // stringReadOnly wasn't modified, new string with value "Hello" + ", World" was made 
+            // making new string every time we want to modifies existing ones, slow flow program
+            //to avoid it we can use String builder 
+            StringBuilder stringB = new StringBuilder("Hello"); //Initialization of reference StringBUilderClass
+            stringB.Append(", World!");  //Appends the string representation of a specified object to this instance
+            string stringStringB = stringB.ToString();//ToString returns string value of String referrence 
+            Console.WriteLine(stringStringB); //Hello, World! 
+
+            #endregion
+
+        }
+    }
+}
