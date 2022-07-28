@@ -1,0 +1,36 @@
+    internal class Exercise
+    {
+        /* Write a C# program to multiply corresponding elements of two arrays of integers.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter size of arrays: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+            int[] firstArray = ArrayMaker(size);
+            int[] secondArray = ArrayMaker(size);
+            int[] newArray = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                newArray[i] = firstArray[i] * secondArray[i];
+            }
+            Console.Write("New Array Content is: ");
+            foreach(int i in newArray)
+            {
+                Console.Write(i + " ");
+            }
+          
+  
+
+        }
+        static int[] ArrayMaker(int size)
+        {
+            int[] array = new int[size];
+            for(int i = 0; i < size; i++)
+            {
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            return array;
+        }
+
+    }
