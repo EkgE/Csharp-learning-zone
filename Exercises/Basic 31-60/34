@@ -1,0 +1,28 @@
+    internal class Exercise
+    {
+        /* Write a C# program to check if a string starts with a specified word.
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            string input = Console.ReadLine();
+
+            Console.Write("Enter wanted word: ");
+            string wantedWord = Console.ReadLine();
+
+            if (input.StartsWith(wantedWord))
+            {
+                Console.WriteLine("{0} starts with {1}", input, wantedWord);
+            }
+            else Console.WriteLine("{0} doesn't starts with {1}", input, wantedWord);
+            
+            
+            
+          
+  
+
+        }
+
+
+    }
