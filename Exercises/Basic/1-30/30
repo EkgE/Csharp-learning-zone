@@ -1,0 +1,35 @@
+internal class Exercise
+    {
+        /* Convert a hexadecimal number to decimal number
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your hexadecimal number: ");
+            string enteredNumber = Console.ReadLine();
+            if (IsHex(enteredNumber))
+            {
+                int numberDecimal = Convert.ToInt32(enteredNumber, 16);
+                Console.WriteLine("Decimal output is: " + numberDecimal);
+            }
+            else
+            {
+                Console.WriteLine("Your input wasn't hexadecimal number");
+            }
+          
+  
+
+        }
+        static bool IsHex(string input)
+        {
+            bool isHex;
+            for (int i = 0; i < input.Length - 1; i++)
+            {
+                isHex = ((input[i] >= '0' && input[i] <= '9') ||
+                    (input[i] >= 'a' && input[i] <= 'f') ||
+                    (input[i] >= 'A' && input[i] <= 'F'));
+                if (!isHex) return false;
+            }
+            return true;
+        }
+    }
