@@ -8,8 +8,14 @@
             Console.Write("Enter your sentence: ");
             string sentence = Console.ReadLine();
             bool contains = sentence.Substring(1).StartsWith("HP");
-            if (contains) Console.WriteLine("Sentence contain HP");
+            
+            if (contains) 
+            {
+                Console.WriteLine("Sentence contain HP");
+                Console.WriteLine("Sentence without it is: " + sentence.Remove(1, 2));
+            }
             else Console.WriteLine("Sentence doesn't contain HP");
+            
         
         }
 
