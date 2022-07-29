@@ -1,0 +1,20 @@
+    internal class Exercise
+    {
+        /* Write a C# program to find the largest and lowest values from three integer values
+         */
+
+        static void Main(string[] args)
+        {
+
+            int[] input = new int[3];
+            for(int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter your number: ");
+                input[i] = Int32.Parse(Console.ReadLine());
+            }
+            Array.Sort(input);
+            Console.WriteLine("Highest number of inputs is: " + input[input.Length - 1]);
+            Console.WriteLine("Lowest number of inputs is: " + input[0]);
+            Console.ReadKey();
+        }
+    }
