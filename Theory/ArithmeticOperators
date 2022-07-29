@@ -1,0 +1,47 @@
+namespace Theory
+{
+    internal class ArithmeticOperators
+    {
+        static void Main(string[] args)
+        {
+            int x = 5;
+            int y = 10;
+            /* Operators can be binary operators like * (multiplication), / (division), % (remainder), + (addition), and - (subtraction) operators
+             * and Unary ++ (increment), -- (decrement), + (plus), and - (minus) operators
+             */
+            Console.WriteLine("Addition operator x + y = " + (x + y));
+            Console.WriteLine("Division operator x - y = " + (x - y));
+            Console.WriteLine("Modulo operator x % y = " + (x % y));
+            Console.WriteLine("Multiplication operator x * y = " + (x * y));
+            Console.WriteLine("Division operator = x / y = " + (x / y));
+
+            //Compounds operators are shorted binary operators 
+            Console.WriteLine("Compound addition operator x += y " + (x += y));
+            Console.WriteLine("Compound division operator x -= y  " + (x -= y));
+            Console.WriteLine("Compound modulo operator x %= y  " + (x %= y));
+            Console.WriteLine("Compound multiplication operator x *= y  " + (x *= y));
+            Console.WriteLine("Compound division operator = x /= y  " + (x /= y));
+
+
+            //increment operator ++ increments its operand by 1
+            Console.WriteLine("prefix increment operator ++x = " + ++x); //The result of ++x is the value of x after the operation 
+            Console.WriteLine("postfix increment operator x++ = " + x++); //The result of x++ is the value of x before the operation
+            //decrement operator -- decrements its operand by 1.
+            Console.WriteLine("prefix decrement operator ++x = " + --x); //same as above
+            Console.WriteLine("postfix decrement operator ++x = " + x++);
+
+            Console.WriteLine("Unary + operator of x = " + +x); //returns the value of its operand
+            Console.WriteLine("Unary - operator of x = " + -x); //numeric negation of its operand
+            Console.WriteLine("Double unary - operator of x = " + -(-x)); //return the value of its operant because double negative
+
+            /*highest precedence to the lowest:
+             * Postfix increment x++ and decrement x-- operators
+             * Prefix increment ++x and decrement --x and unary + and - operators
+             * Multiplicative *, /, and % operators
+             * Additive + and - operators
+            */
+            //Binary arithmetic operators are left-associative. That is, operators with the same precedence level are evaluated from left to right
+            //
+
+        }
+    }
