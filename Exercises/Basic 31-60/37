@@ -1,0 +1,17 @@
+    internal class Exercise
+    {
+        /* Write a C# program to check if "HP" appears at second position in a string and returns the string without "HP".
+         */
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter your sentence: ");
+            string sentence = Console.ReadLine();
+            bool contains = sentence.Substring(1).StartsWith("HP");
+            if (contains) Console.WriteLine("Sentence contain HP");
+            else Console.WriteLine("Sentence doesn't contain HP");
+        
+        }
+
+
+    }
