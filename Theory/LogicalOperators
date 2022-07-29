@@ -1,0 +1,57 @@
+    internal class LogicalOperators
+    {
+        static void Main(string[] args)
+        {
+            /*  They always return bool value 
+            Comparison operators/relational operators:
+                < (less), > (greater), <= (lessor equal), and >= (greater or equal) relational operators 
+                == (equality) and != (inequality) operators
+            Boolean logical operators:
+                Unary ! (negation) operator
+                Binary & (AND), | (OR), and ^ (OR) operators. Those operators always evaluate both operands.
+                Binary && (AND) and || (OR) operators. Those operators evaluate the right-hand operand only if it's necessary.
+            Ternary conditional operator ?:
+                
+            */
+            int x = 5;
+            int y = 10;
+            bool z = true;
+
+            Console.WriteLine("Less than operator x < y = " + (x < y));
+            Console.WriteLine("Greater than operator x > y = " + (x > y));
+            Console.WriteLine("Less or equal than operator x <= y = " + (x <= y));
+            Console.WriteLine("Greater or equal than operator x >= y = " + (x <= y));
+            Console.WriteLine("Equality operator x == y = " + (x == y));
+            Console.WriteLine("Inequality operator x != y = " + (x != y));
+            //char values can be compared too, the corresponding character codes are compared
+            //equality operators are equal if they compare same value data or refference types that point to same object 
+
+            Console.WriteLine("Unary negation operator !true = " + (!true) + " and !false = " + (!false));
+            Console.WriteLine("Binary & and && operator " +
+                "\n(true && true) = " + (true && true) +
+                "\n(false && true) or (true && false ) = " + (false && true) +
+                "\n(false && false) = " + (false && false));
+            Console.WriteLine("Binary | or || operator " +
+                "\n(true || true) = " + (true && true) +
+                "\n(false || true) or (true }} false ) = " + (false && true) +
+                "\n(false || false) = " + (false && false));
+
+            //Compound boolean logical operators 
+            Console.WriteLine("Compound binary z |= false = " + (z |= false));
+            Console.WriteLine("Compound binary z &= false = " + (z &= false));
+
+            /*highest boolean logical precedence to the lowest:
+                negation operator !
+                AND operator &
+                exclusive OR operator ^
+                OR operator |
+                AND operator &&
+                OR operator ||
+            */
+
+            /*Ternary conditional operator ?: returns the result of one of the two expressions, depending on outcome the Boolean expression
+            * */
+            Console.WriteLine(" Ternary conditional operator x > 5 ? true : false = " + (x > 5 ? true : false));
+
+        }
+    }    
