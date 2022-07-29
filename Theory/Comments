@@ -1,0 +1,35 @@
+namespace Theory
+{
+    internal class CommentsRegions
+    {
+    // three slashes before method allows to leave notes about method 
+        /// <summary>
+        /// this will output while we call method in IDE
+        /// </summary>
+        /// <param name="args"> arguments explanation</param>
+        static void main(string[] args)
+        {
+            //comments are programming tool to leaves notes in parts of the code 
+            //comments are ignored by compiler 
+
+            //  single line comments
+            /* for multi line comments */
+
+            /* tips for commenting code 
+             * - comment portions of code that are difficult to understand
+             * - keep the comments simple and direct
+             * - comments should be correct and up-to-date
+             * - you can comment out lines of code by coding an apostrophe before them
+             * - stay with consistent style of commenting
+             * - avoid obvious comments
+             * - break long comments into paragraphs
+             * - comment code while writing it
+             * - write comments as if they were for you
+             * */
+
+            #region
+            //regions allow to chop code into smaller, blocs 
+            #endregion
+        }
+    }
+}
