@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace Theory
+{ /*Given an integer x, return true if x is palindrome integer.
+   * */
+    internal class CommentsRegions
+    {
+
+        static void Main(string[] args)
+        {
+
+        }
+
+        /// <summary>
+        /// 102 ms	28 MB
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        static public bool IsPalindrome(int x)
+        {
+            if (x < 0) return false;
+            int num = x;
+            int y = 0;
+            while(num != 0)
+            {
+                y = (y * 10) + (num % 10);
+                num /= 10;
+
+            }
+            return y == x;
+        }
+        /// <summary>
+        /// 74 ms	29.1 MB
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        static public bool IsPalindrome2(int x)
+        {
+            if (x < 0) return false;
+
+            string input = x.ToString();
+            char[] chars = input.ToCharArray();
+            Array.Reverse(chars);
+            string output = new string(chars);
+            return output.Equals(input);
+        }
+        /// <summary>
+        /// 102 ms	30.2 MB
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public bool IsPalindrome3(int x)
+        {
+            if (x < 0) return false;
+            string input = x.ToString();
+            string output = new string(input.Reverse().ToArray());
+            return output.Equals(input);
+        }
+    }
+}
