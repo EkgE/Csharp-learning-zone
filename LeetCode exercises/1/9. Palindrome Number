@@ -59,5 +59,23 @@ namespace Theory
             string output = new string(input.Reverse().ToArray());
             return output.Equals(input);
         }
+                /// <summary>
+        /// 62 ms	28.2 MB
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        static public bool ispalindromeBest(int x)
+        {
+            if (x < 0) return false;
+            int revertedNumber = 0;
+            while(revertedNumber < x)
+            {
+                revertedNumber = revertedNumber * 10 + x % 10;
+                x /= 10;
+            }
+            return x == revertedNumber;
+
+
+        }
     }
 }
