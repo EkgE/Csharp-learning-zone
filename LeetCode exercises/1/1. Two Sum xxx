@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        
+            Dictionary<int, int> dictionary = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] <= target)
+                {
+                    dictionary.Add(i, nums[i]);
+                }
+            }
+            int[] output = new int[2];
+            for(int i = 0; i < dictionary.Count; i++)
+            {
+                for(int j = i + 1; j < dictionary.Count; j++)
+                {
+                    if (target == (dictionary.ElementAt(i).Value + dictionary.ElementAt(j).Value)){
+                        output[0] = dictionary.ElementAt(i).Key;
+                        output[1] = dictionary.ElementAt(j).Key;
+                    return output;
+                    }
+                }
+            }
+            return output;
+    }
+}
