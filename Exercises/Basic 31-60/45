@@ -1,0 +1,26 @@
+internal class Exercise
+{
+    /* Write a C# program to count a specified number in a given array of integers.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your array numbers, separated by coma: ");
+        string input = Console.ReadLine();
+        string[] stringArray = input.Split(',');
+        Console.Write("Enter your number: ");
+        string checkedNumber = Console.ReadLine();
+        int count = 0; 
+        foreach (string str in stringArray)
+        {
+            if (str.Equals(checkedNumber))
+            {
+                count++;    
+            }
+        }
+        Console.Write("Your number appeared {0} times in inputed array", count);
+        Console.ReadKey();
+ 
+
+    }
+}
