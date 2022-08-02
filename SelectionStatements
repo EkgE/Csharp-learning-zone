@@ -1,0 +1,77 @@
+namespace Theory
+{ 
+    internal class SelectionStatements
+    {
+
+        static void Main(string[] args)
+        {
+            #region if Statement
+            //The if statement: selects a statement to execute based on the value of a Boolean expression
+            if (true)
+            {
+                Console.WriteLine("If executed");
+            } //single if statement 
+
+            //chain if statement, if first condition return false, then another else if i checked 
+            if (false) // false, going to another selection statement 
+            {
+                Console.WriteLine("This never executed ");
+            } 
+            else if(true) // true, execute code block 
+            {
+                Console.WriteLine("If else executed");
+            }
+
+
+            if (false) // false, going to another selection statement 
+            {
+                Console.WriteLine("This never executed ");
+            }
+            else if (false) // false, going to another selection statement 
+            {
+                Console.WriteLine("This also never executed ");
+            }
+            else //any of condition gives true, so else as default executes 
+            {
+                Console.WriteLine("Else executes");
+            }
+
+
+            #endregion
+            #region switch
+            //The switch statement selects a statement list to execute based on a pattern match with a match
+            int x = 10;
+            switch (x)// compared value 
+            {
+                case 0: //check if compared value is equal 0
+                    Console.WriteLine("x = 0");
+                    break; //breaking out from cases // without break all cases would execute after passed one 
+                    //return and throw can do the work too
+                case 5: //check if compared value is equal 5
+                    Console.WriteLine("x = 5");
+                    break;
+                case 10: //check if compared value is equal 10
+                    Console.WriteLine("x = 10");
+                    break;
+                default: //default statement, if any of cases gives true // its optional 
+                    Console.WriteLine("x = idk");
+                    break;
+            }
+            switch (x)
+            {
+                default: // default position doesn't matter, it always executes last 
+                    Console.WriteLine("x = idk");
+                    break;
+                case 0:
+                case 5:
+                case 10: // multiple cases with one statement 
+                    Console.WriteLine("x = 5 or  10 or  15");
+                    break;
+
+            }
+
+            #endregion
+        }
+
+    }
+}
