@@ -1,0 +1,45 @@
+internal class Exercise
+{
+    /* Write a C# program to create an new array, containing the middle elements of three arrays of integers.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] firstArray = creatingArrays();
+        int[] secondArray = creatingArrays();
+        int[] thirdArray = creatingArrays();
+        int[] newArray = ex52(firstArray, secondArray, thirdArray);
+        Console.WriteLine("new array, containing the middle elements of three arrays of integers contains: ");
+        foreach(int i in newArray)
+        {
+            Console.Write(i + ", ");
+        }
+        Console.ReadKey();
+
+
+    }
+    static int[] ex52(int[] array1, int[] array2, int[] array3)
+    {
+        return new int[] { array1[middleOfArray(array1)], array2[middleOfArray(array2)], array3[middleOfArray(array3)] };
+    }
+    
+
+    public static int middleOfArray(int[] array)
+    {
+            return array.Length / 2;
+
+    }
+    
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+}
