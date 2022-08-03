@@ -1,0 +1,35 @@
+internal class Exercise
+{
+    /* Write a C# program to rotate the elements an array (length 3) of integers in left direction.
+     */
+
+    static void Main(string[] args)
+    {
+
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for(int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in first array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        ex50(arrayInt);
+        Console.WriteLine("Rotated array is: ");
+        foreach(int i in arrayInt)
+        {
+            Console.Write(i + ", ");
+        }
+        Console.ReadKey();
+
+    }
+    static void ex50(int[] array)
+    {   int temp = array[0];
+        for(int i = 0; i < array.Length - 1; i++)
+        {
+            array[i] = array[i + 1];
+        }
+        array[array.Length - 1] = temp; 
+
+    }
+}
