@@ -1,28 +1,49 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
-        
-            Dictionary<int, int> dictionary = new Dictionary<int, int>();
-            for (int i = 0; i < nums.Length; i++)
+
+
+internal class Sollution 
+{
+
+
+    static void Main(string[] args)
+    {
+
+    }
+    //155 ms	45 MB
+    public int[] TwoSum(int[] nums, int target)
+    {
+        Dictionary<int, int> dict = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (dict.ContainsKey(target - nums[i]))
             {
-                if (nums[i] <= target)
-                {
-                    dictionary.Add(i, nums[i]);
-                }
+                return new int[] { dict[target - nums[i]], i };
             }
-            int[] output = new int[2];
-            for(int i = 0; i < dictionary.Count; i++)
+            else if (!dict.ContainsKey(nums[i]))
             {
-                for(int j = i + 1; j < dictionary.Count; j++)
-                {
-                    if (target == (dictionary.ElementAt(i).Value + dictionary.ElementAt(j).Value)){
-                        output[0] = dictionary.ElementAt(i).Key;
-                        output[1] = dictionary.ElementAt(j).Key;
-                    return output;
-                    }
-                }
+                dict.Add(nums[i], i);
             }
-            return output;
+        }
+        return new int[] { -1, -1 };
+    }
+
+    //272 ms	42.7 MB
+    public int[] TwoSumBrute(int[] nums, int target)
+    {
+        for(int i = 0; i < nums.Length; i++)
+        {
+            for(var j = i + 1; j < nums.Length; j++)
+            {
+                int number = target - nums[i];
+                if(number == nums[j])
+                {
+                    return new int[2] { i, j };
+                }
+            }   
+        }
+        return new int[0];
+
     }
 }
