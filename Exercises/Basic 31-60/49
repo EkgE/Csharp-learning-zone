@@ -1,0 +1,42 @@
+internal class Exercise
+{
+    /* Write a C# program to check if the first element or the last element of the two arrays ( length 1 or more) are equal.
+     */
+
+    static void Main(string[] args)
+    {
+
+        Console.Write("Enter length of first array:  ");
+        int lentgh1 = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt1 = new int[lentgh1];
+        for(int i = 0; i < lentgh1; i++)
+        {
+            Console.Write("Enter item in first array at index {0}: ", i);
+            arrayInt1[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        Console.Write("Enter length of second array:  ");
+        int lentgh2 = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt2 = new int[lentgh2];
+        for (int i = 0; i < lentgh2; i++)
+        {
+            Console.Write("Enter item in first array at index {0}: ", i);
+            arrayInt2[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("First or last item of two arrays that have length 1 or more is {0}", ex48(arrayInt1, arrayInt2));
+        Console.ReadKey();
+
+    }
+    static bool ex48(int[] array1, int[] array2)
+    {
+        if (array1.Length == 0 || array2.Length == 0)
+        {
+            return false;
+        }
+        else if (array1[0] == array2[0] || array1[array1.Length - 1] == array2[array2.Length - 1])
+        {
+            return true;
+        }
+        else return false;
+
+    }
+}
