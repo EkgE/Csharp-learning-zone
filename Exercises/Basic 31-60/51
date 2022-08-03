@@ -1,0 +1,27 @@
+internal class Exercise
+{
+    /* Write a C# program to get the larger value between first and last element of an array of integers
+     */
+
+    static void Main(string[] args)
+    {
+
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for(int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in first array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("The larger value between first and last element of inputed array is {0}", ex51(arrayInt));
+
+        Console.ReadKey();
+
+    }
+    static int ex51(int[] array)
+    {
+        return array[0] > array[array.Length - 1] ? array[0] : array[array.Length - 1];
+
+    }
+}
