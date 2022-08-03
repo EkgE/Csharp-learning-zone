@@ -1,0 +1,39 @@
+internal class Exercise
+{
+    /* Write a C# program to check if an array contains an odd number.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] array = creatingArrays();
+        Console.WriteLine("Array contains an odd number: " + ex53(array));
+        Console.ReadKey();
+
+    }
+    static bool ex53(int[] array)
+    {
+        for(int i = 0; i < array.Length; i++)
+        {
+            if(array[i] % 2 == 1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
+    
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+}
