@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Theory
+namespace Sollution
 { /*Given an integer x, return true if x is palindrome integer.
    * */
-    internal class CommentsRegions
+    internal class PalindromeNumber
     {
 
         static void Main(string[] args)
