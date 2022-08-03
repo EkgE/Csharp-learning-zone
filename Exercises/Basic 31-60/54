@@ -1,0 +1,26 @@
+using System;
+
+
+
+internal class Exercise
+{
+    /* Write a C# program to get the century from a year.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter year: ");
+        int input = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("{0} is a {1} century", input, ex54(input));
+        Console.ReadKey();
+
+    }
+    static int ex54(int year)
+    {
+        if (year % 100 == 0)
+        {
+            return year / 100;
+        }
+        else return year / 100 + 1;
+    }
+}
