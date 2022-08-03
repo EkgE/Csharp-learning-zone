@@ -1,0 +1,49 @@
+internal class Dictionary
+{
+   
+
+    static void Main(string[] args)
+    {
+        //Dictionary is equivalent of java hashtable 
+        //Represents a collection of keys and values
+        //Dictionary is generic class 
+
+        Dictionary<int, string> dic = new Dictionary<int, string> { }; //creating an instance of dictionary
+        //firs type value (int) is a key second one is bounded value 
+
+        //Inserting new items 
+        dic.Add(1, "Hello"); 
+        dic.Add(5, "Kappa");
+        dic.Add(15, "Hello"); //values can duplicate
+        // dic.Add(3, "Nice"); //ArgumentException when attempting to add a duplicate key
+
+        Console.WriteLine("Retrieving value at key 15 = " + dic[15]); //retrieve values by key 
+       // Console.WriteLine(dic[20]); //System.Collections.Generic.KeyNotFoundException: 
+        
+
+        dic[1] = "Hello, World"; //change associated value 
+
+        dic[20] = "New value"; // If a key does not exist, setting the indexer for that key
+                               // adds a new key/value pair
+        string value = "";
+        Console.WriteLine("dic.TryGetValue return " + dic.TryGetValue(20, out value) + " key 20 is bounded with value " + value);
+        //Gets the value associated with the specified key
+        // and pass it to the value, if ey wasn't founded value is set as default 
+        // method return boolean if specific key is found 
+
+        Console.WriteLine("dic.ContainsKey(20) = " + dic.ContainsKey(20));
+        //Return true if dictionary contains specific key
+
+        foreach(KeyValuePair<int, string> kvp in dic)
+        {
+            Console.WriteLine("Key {0} is bounded with value {1}", kvp.Key, kvp.Value);
+        }
+        //enumerated elements are retrieved as KeyValuePair objects.
+
+        dic.Remove(20); //Removing key-value pair by specifying key 
+
+
+
+        Console.ReadKey();
+    }
+}
