@@ -1,0 +1,32 @@
+internal class Exercise
+{
+    /* Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Input integer: ");
+        int input = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter length of array:  ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for(int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        if (ex46(arrayInt, input))
+        {
+            Console.WriteLine("Your number was at start or end of array");
+        }
+        else Console.WriteLine("Your number wasn't at start or end of array");
+        Console.ReadKey();
+
+
+    }
+    static bool ex46(int[] array, int number)
+    {
+        return number == array[0] || number == array[array.Length - 1];
+    }
+}
