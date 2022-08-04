@@ -1,0 +1,42 @@
+internal class Exercise
+{
+    /* Write a C# program to find the pair of adjacent elements that has the highest product of an given array of integers.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] array = creatingArrays();
+        Console.WriteLine("Largest product of the pair of adjacent elements of an given array of integers is {0}", ex57(array));
+        Console.ReadKey();
+
+
+    }
+    static int ex57(int[] array)
+    {
+        int sum = 0;
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+
+            if (array[i] * array[i + 1] > sum)
+            {
+                sum = array[i] * array[i + 1];
+            }
+        }
+        return sum;
+    }
+
+
+
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+}
