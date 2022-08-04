@@ -1,0 +1,45 @@
+internal class Exercise
+{
+    /* Write a C# program to find the pair of adjacent elements that has the largest product of an given array which is equal to a given value.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] array = creatingArrays();
+        Console.Write("Enter target number: ");
+        int target = Convert.ToInt32(Console.ReadLine());
+        bool result = ex55(array, target);
+        Console.WriteLine("largest product of an given array from pair of adjacent elements is equal to " + target + " is a " + result);
+        Console.ReadKey();
+
+
+    }
+    static bool ex55(int[] array, int target)
+    {
+        int sum = 0;
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+
+            if (array[i] * array[i + 1] > sum)
+            {
+                sum = array[i] * array[i + 1];
+            }
+        }
+        return target == sum;
+    }
+    
+
+    
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+}
