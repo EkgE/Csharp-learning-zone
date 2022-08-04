@@ -101,6 +101,7 @@ internal class Arrays
             }
             Console.WriteLine();
         }
+        //Array.GetLength() Gets a int that represents the number of elements in the specified dimension of the Array 
 
         //jagged array is "array of arrays.", whose elements are arrays,
         int[][] jaggedIntArray = new int[3][]; // declaration of jagged array with number of arrays within it 
