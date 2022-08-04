@@ -1,0 +1,62 @@
+using System;
+
+internal class Converting
+{
+    static void Main(string[] args)
+    {
+        //csharp is strong typed/statically language, which means after a variable is declared, it cannot be declared again or assigned a value of another type
+        /* Data type converting 
+         * Implicit conversions 
+         * Explicit conversions
+         * User-defined conversions NOT DESCRIBED
+         * Conversions with helper classes
+         * */
+        int x = 12;
+
+
+        /* Implicit conversion: No special syntax is required because the conversion always succeeds and no data will be lost. 
+         * Examples include conversions from smaller to larger integral types, and conversions from derived classes to base classes
+         */
+        long xLong = x;
+        Console.WriteLine("xLong data type is " + xLong.GetType());
+
+        /*For reference types, an implicit conversion always exists from a class to any one of its direct or indirect base classes or interfaces. 
+        No special syntax is necessary because a derived class always contains all the members of a base class*/
+
+        /*Explicit conversions require a cast expression. 
+         * Casting is required when information might be lost in the conversion,
+         * or when the conversion might not succeed for other reasons.
+         * */
+        double z = 1.23;
+        int zInt = (int) z; //System require (int) cast expression to convert data, however numbers after decimal point are omitted
+        Console.WriteLine("zInt variable is {0} with data type of {1} converted from z variable with value {2} of data type {3}", zInt, zInt.GetType(), z, z.GetType());
+
+        /*For reference types, an explicit cast is required if you need to convert from a base type to a derived type */
+
+        //helper classes 
+        string y = "12";
+        //Parse
+        int yInt = int.Parse(y);
+        Console.WriteLine("y variable which is {0} with data type {1} converted into yInt of data type {2} using Parse()", y, y.GetType(), yInt.GetType());
+        float yFloat = float.Parse(y);
+        Console.WriteLine("y variable which is {0} with data type {1} converted into yFloat of data type {2} using Parse()", y, y.GetType(), yFloat.GetType());
+        double yDouble = double.Parse(y);
+        Console.WriteLine("y variable which is {0} with data type {1} converted into yDouble of data type {2} using Parse()", y, y.GetType(), yDouble.GetType());
+        //TryParse
+        int yInt2;
+        bool TryParse = int.TryParse(y, out yInt2);
+        //TryParse is different, because it return true if parsing was successful or false if not 
+        //first parameter is parsed value, second is variable that will change data type;
+        Console.WriteLine("Converting data type was {0}, yInt2 store {1} of data type {2}", TryParse, yInt2, yInt2.GetType());
+
+        //Converting into String 
+        int c = 12;
+        string cString = c.ToString();
+        Console.WriteLine("c variable which is {0} with data type {1} converted into cString of data type {2} using toString", c, c.GetType(), cString.GetType());
+        //Convert 
+        int yInt3 = Convert.ToInt32(y);
+        Console.WriteLine("y variable which is {0} with data type {1} converted into yInt3 of data type {2} using Conver.ToInt32()", y, y.GetType(),  yInt3.GetType());
+
+        Console.ReadKey();
+    }
+}
