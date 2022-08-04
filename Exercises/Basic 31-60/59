@@ -1,0 +1,24 @@
+internal class Exercise
+{
+    /* Write a C# program to calculate the sum of all the integers of a rectangular matrix except those integers 
+     * which are located below an intger of value 0.
+     */
+
+    static void Main(string[] args)
+    {
+
+    }
+    static bool ex59(int[] input)
+    {
+        int[] array = new int[input.Length];
+        Array.Copy(input, array, input.Length);
+        Array.Sort(array); 
+        for(int i = 0; i < array.Length - 1; i++)
+        {
+            if(array[i] >= array[i + 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
