@@ -1,0 +1,120 @@
+using System;
+internal class Loops
+{
+    /* Write a C# program to calculate the sum of all the integers of a rectangular matrix except those integers 
+     * which are located below an intger of value 0.
+     */
+
+    static void Main(string[] args)
+    {
+        /*
+         for : executes its body while a specified Boolean expression evaluates to true.
+         foreach : enumerates the elements of a collection and executes its body for each element of the collection.
+         while  do : conditionally executes its body one or more times.
+         while : conditionally executes its body zero or more times.
+        */
+
+        for(int i = 1; i < 5; i++)
+        {
+            Console.WriteLine("This is {0} loop using for", i);
+        }
+        //(int i = 1) initializer section executed only once, before entering the loop, used for declaring variables 
+        //( i < 5) condition section, mus be boolean, determines if next iteration should take place 
+        //(i++) iterator section, defines what happens after each execution 
+        // the body, closed within curly braces 
+        // all sections are optional 
+        
+        
+        int count = 1;
+        while(count < 5)
+        {
+            Console.WriteLine("This is {0} loop using while", count);
+            count++;
+        }
+        //While loop executes each time if condition is fulfilled 
+
+        do
+        {
+            Console.WriteLine("This executes even if condition is not false");
+        } while (false);
+        //do while executes one time, than condition is checked 
+        //depending on result of condition, block of code within do curly braces executes more time 
+
+        int[] array = { 15, 20, 25 };
+        foreach(int i in array)
+        {
+            Console.WriteLine("array contain {0}", i);
+        }
+        /*The foreach statement executes a statement or a block of statements for each element in an instance of the type that
+        implements the System.Collections.IEnumerable or System.Collections.Generic.IEnumerable<T>
+        - A type has the public parameterless GetEnumerator method
+         - The return type of the GetEnumerator method has the public Current property and the public parameterless MoveNext method whose return type is bool
+        */
+
+        /*jump statements:
+         - break
+         - continue 
+         - return use in methods
+         - goto dont use 
+            */
+
+        for(int i = 1; i < 4; i++)
+        {
+            if(i == 2)
+            {
+                Console.WriteLine("For loop break");
+                break;
+            }
+            Console.WriteLine("for loop executed {0}", i);
+        }
+        //break terminates loop, stoping from further execution of code within for loop code block  
+        //in nested loops, break stops layer of loop in which is written in 
+
+        for (int outer = 0; outer < 5; outer++)
+        {
+            for (int inner = 0; inner < 5; inner++)
+            {
+                if (inner > outer)
+                {
+                    break;
+                }
+
+                Console.Write($"{inner} ");
+            }
+            Console.WriteLine();
+        }
+
+        for (int i = 1; i <= 6; i++)
+        {
+            if(i % 2 == 0)
+            {
+                continue;
+            }
+            Console.Write($"{i} ");
+        }
+        //Continue skipped iteration, if reached and starting over next one 
+
+        //The goto statement transfers control to a statement that is marked by a label
+        //only valid option of using goto is switch tbh
+        for(int i = 0; i < 5; i++)
+        {
+            if(i == 3)
+            {
+                goto lebel;
+            }
+            Console.WriteLine($"for loop executed {i} times" );
+        
+        }
+        lebel: Console.WriteLine("Goto i == 3");
+        
+
+
+
+        Console.ReadKey();
+    }
+
+
+
+
+
+}
