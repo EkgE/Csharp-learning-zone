@@ -1,1 +1,30 @@
-xx
+internal class Exercise
+{
+    /* Write a C# program to sort the integers in ascending order without moving the number -5.
+     */
+
+    static void Main(string[] args)
+    {
+
+    }
+    static void ex61(int[] input)
+    {
+        int temp = 0;
+        for(int i = 0; i < input.Length - 1; i++)
+        {
+            for(int j = i + 1; j < input.Length; j++)
+            {
+                if (input[i] == -5 || input[j] == -5)
+                {
+                    break;
+                }
+                if (input[j] < input[i])
+                {
+                    temp = input[i];
+                    input[i] = input[j];
+                    input[j] = temp;
+                }
+            }
+        }
+    }
+}
