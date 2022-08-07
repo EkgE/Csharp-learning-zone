@@ -1,0 +1,22 @@
+internal class Exercise
+{
+    /* Write a C# Sharp program to get the file name (including extension) from a given path.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter path of the file: ");
+        string path = Console.ReadLine();
+        Console.WriteLine("File name of inputed path is {0}", ex64(path));
+        Console.ReadKey();
+
+                        
+    }
+    public static string ex64(string path)
+    {
+        return Path.GetFileName(path);
+             
+
+    }
+    
+}
