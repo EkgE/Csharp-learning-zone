@@ -1,0 +1,35 @@
+internal class Exercise
+{
+    /* Write a C# program to check if a given number present in an array of numbers.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter target number: ");
+        int input = Convert.ToInt32(Console.ReadLine());
+        int[] array = creatingArrays();
+        Console.WriteLine("Array contains target number {0} is {1}", input, ex63(array, input));
+
+        Console.ReadKey();
+
+                        
+    }
+    public static bool ex63(int[] input, int number)
+    {
+        return input.Contains(number);
+             
+
+    }
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+}
