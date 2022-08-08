@@ -1,0 +1,20 @@
+using System;
+internal class Exercise
+{
+    /* Write a C# Sharp program to convert an integer to string and a string to an integer.
+     */
+
+    static void Main(string[] args)
+    {
+    }
+
+    public static string Ex78(int input)
+    {
+        return Convert.ToString(input);
+    }
+    public static int Ex78(string input)
+    {
+            return Convert.ToInt32(input);
+    }
+
+}
