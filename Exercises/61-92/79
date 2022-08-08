@@ -8,11 +8,11 @@ internal class Exercise
     {
     }
 
-    public static string Ex78(int input)
+    public static string Ex79(int input)
     {
         return Convert.ToString(input);
     }
-    public static int Ex78(string input)
+    public static int Ex79(string input)
     {
             return Convert.ToInt32(input);
     }
