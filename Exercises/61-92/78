@@ -1,0 +1,36 @@
+using System;
+internal class Exercise
+{
+    /* Write a C# Sharp program to find sum of squares of elements of a given array of integers.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] array = creatingArrays();
+        Console.WriteLine("sum of squares of elements of a given array is {0}", Ex78(array));
+        Console.ReadKey();
+    }
+
+    public static int Ex78(int[] input, int power = 2)
+    {
+        int sum = 0;
+        for(int i = 0; i < input.Length; i++)
+        {
+            sum += (int) Math.Pow(Convert.ToDouble(input[i]), power);
+        }
+    return sum;
+    }
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+
+}
