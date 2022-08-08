@@ -1,0 +1,32 @@
+internal class Exercise
+{
+    /* Write a C# Sharp program to count a specified character in a given string.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Input your sentence: ");
+        string input = Console.ReadLine();
+        Console.Write("Enter target character: ");
+        try
+        {
+            char target = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("{0} appear {1} times in {2}", target, ex68(input, target), input);
+
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("You didn't entered single character");
+        }
+
+
+        Console.ReadKey();  
+
+    }
+    public static int ex68(string input, char target)    
+    {
+        return input.Split(target).Length - 1;
+
+    }
+
+}
