@@ -1,0 +1,35 @@
+using System;
+using System.Linq;
+
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to check whether the average value of the elements of a given array of numbers is a whole number or not.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] array = creatingArrays();
+        Console.WriteLine("Average of values from your inputed array is a whole number is {0}", Ex72(array));
+        Console.ReadKey();
+    }
+
+    public static bool Ex72(int[] array)    
+    {
+        return array.Average() % 1 == 0;
+    }
+
+    static int[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+
+}
