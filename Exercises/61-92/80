@@ -1,0 +1,35 @@
+using System;
+internal class Exercise
+{
+    /* Write a C# Sharp program to convert all the values of a given array of mixed values to string values.
+     */
+
+    static void Main(string[] args)
+    {
+        object[] array = creatingArrays();
+        string[] newArray = Ex80(array);
+        for (int i = 0; i < newArray.Length; i++)
+        {
+            Console.WriteLine("{0} item at index {1} is now type {2}: ", newArray[i], i, newArray[i].GetType());
+        }
+        Console.ReadKey();
+    }
+
+    public static string[] Ex80(object[] array)
+    {
+        return Array.ConvertAll(array, s => s.ToString());
+    }
+    static object[] creatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        object[] array = new object[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            array[i] = Console.ReadLine(); // this is kinda bullshit, because all items will be type of string XD
+        }
+        return array;
+    }
+
+}
