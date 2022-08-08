@@ -1,0 +1,21 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to check the length of a given string is odd or even. Return 'Odd length' if the string length is odd otherwise 'Even length'.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your string: ");
+        string input = Console.ReadLine();
+        Console.WriteLine(Ex74(input));
+        Console.ReadKey();
+    }
+
+    public static string Ex74(string input)
+    {
+        return input.Length % 2 == 1 ? "Odd length" : "Even length";
+    }
+
+}
