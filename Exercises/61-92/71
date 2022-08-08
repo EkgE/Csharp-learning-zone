@@ -1,0 +1,26 @@
+using System;
+
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to check if a given string contains two similar consecutive letters.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Input your sentence: ");
+        string input = Console.ReadLine();
+        Console.WriteLine("{0} contains two same consecutive letters is {1}", input, Ex71(input));
+        Console.ReadKey();
+
+    }
+    public static bool Ex71(string input)    
+    {
+        for(int i = 0; i < input.Length - 2; i++)
+        {
+            if (input[i] == input[i + 1]) return true;
+        }
+        return false;
+    }
+
+}
