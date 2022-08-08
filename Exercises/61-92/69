@@ -1,0 +1,26 @@
+using System;
+
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to check if a given string contains only lowercase or uppercase characters.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Input your sentence: ");
+        string input = Console.ReadLine();
+        Console.WriteLine("Your string contains only lowercase or uppercase characters is {0}", ex69(input));
+
+
+
+        Console.ReadKey();  
+
+    }
+    public static bool ex69(string input)    
+    {
+        return String.Equals(input, input.ToLower()) || String.Equals(input, input.ToUpper());
+
+    }
+
+}
