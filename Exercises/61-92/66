@@ -1,0 +1,25 @@
+using System;
+
+
+internal class Exercise
+{
+    /*  Write a C# Sharp program to find the minimum value from two given two numbers, represented as string.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter first number: ");
+        string intput1 = Console.ReadLine();
+        Console.Write("Enter second number: ");
+        string intput2 = Console.ReadLine();
+        Console.WriteLine("Bigger number is: " + ex66(intput2, intput1));
+        Console.ReadKey();
+
+    }
+    public static int ex66(string n1, string n2)
+    {
+        return Convert.ToInt32(n1) > Convert.ToInt32(n2) ? Convert.ToInt32(n1) : Convert.ToInt32(n2);
+
+
+    }
+}
