@@ -1,0 +1,29 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to get the ASCII value of a given character.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter single character: ");
+        try
+        {
+            char input = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Your ASCII value of {0} is {1}", input, Ex76(input));
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("You're supposed to enter single character ");
+        }
+        Console.ReadKey();
+
+    }
+
+    public static int Ex76(char character)
+    {
+        return (int)character;
+    }
+
+}
