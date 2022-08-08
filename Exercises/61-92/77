@@ -1,0 +1,29 @@
+using System;
+internal class Exercise
+{
+    /* Write a C# Sharp program to check whether a given word is plural or not.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter single word: ");
+        string input = Console.ReadLine();
+        //validation 
+        if (input.Contains(" ")) 
+        {
+            Console.WriteLine("You're supposed to enter single word!");
+        }
+        else 
+        {
+            Console.WriteLine("Your word is {0}", Ex77(input));
+        }
+        Console.ReadKey();
+
+    }
+
+    public static string Ex77(string input)
+    {
+        return input.EndsWith("s") ? "plural" : "singular";
+    }
+
+}
