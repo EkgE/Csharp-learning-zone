@@ -1,0 +1,23 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to convert the letters of a given string (same case-upper/lower) into alphabetical order.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your string: ");
+        string input = Console.ReadLine();
+        Console.WriteLine("Your sorted alphabetically string is {0}", Ex73(input));
+        Console.ReadKey();
+    }
+
+    public static string Ex73(string input)    
+    {
+        char[] charArray = input.ToCharArray();
+        Array.Sort(charArray);
+        return new string(charArray);
+    }
+
+}
