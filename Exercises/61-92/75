@@ -1,0 +1,25 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program which takes a positive number and return the nth odd number.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter positive position of odd number: ");
+        int input = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("{0} even number is {1}", input, Ex75(input));
+        Console.ReadKey();
+    }
+
+    public static int Ex75( int n)
+    {
+        if(n <= 0)
+        {
+            return -1;
+        }
+        return n * 2 - 1;
+    }
+
+}
