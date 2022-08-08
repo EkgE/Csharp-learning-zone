@@ -1,0 +1,27 @@
+using System;
+
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to remove the first and last elements from a given string.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Input your sentence: ");
+        string input;
+        Ex70(out input);
+        Console.WriteLine("Your string after removing first and last character is: {0}", input);
+
+
+        Console.ReadKey();  
+
+    }
+    public static void Ex70(out string input)    
+    {
+        input = Console.ReadLine();
+        input = input.Substring(1, input.Length - 2);
+
+    }
+
+}
