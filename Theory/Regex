@@ -1,0 +1,63 @@
+using System;
+using System.Text.RegularExpressions;
+
+namespace Theory
+{ 
+    internal class RegexTheory
+    {
+        /*Regex:  represents an immutable regular expression.
+         is used for matching a particular character pattern, find some repeating pattern or do a data validation or for checking data formatting
+         Regex is widely used for validation
+        */
+        static void Main(string[] args)
+        {
+            //Anchors 
+            //^The           matches any string that starts with The
+            //end$           matches a string that ends with end
+            //^ The end$     exact string match(starts and ends with The end)
+            //roar           matches any string that has the text roar in it
+
+            //Quantifiers 
+            //abc*           matches a string that has ab followed by zero or more c 
+            //abc +          matches a string that has ab followed by one or more c
+            //abc?           matches a string that has ab followed by zero or one c
+            //abc{2}         matches a string that has ab followed by 2 c
+            //abc{2,}        matches a string that has ab followed by 2 or more c
+            //abc{ 2,5}      matches a string that has ab followed by 2 up to 5 c
+            //a(bc) *        matches a string that has a followed by zero or more copies of the sequence bc
+            //a(bc){2,5}     matches a string that has a followed by 2 up to 5 copies of the sequence bc
+
+            //Classes 
+            //\d            matches a single character that is a digit 
+            //\w            matches a word character(alphanumeric character plus underscore)
+            //\s            matches a whitespace character(includes tabs and line breaks)
+            //.             matches any character 
+            //\D            matches a single non-digit character
+            //\W            matches a single non-word  character
+            //\S            matches a single non-whictespace character
+
+            //Flags
+            //g(global)           does not return after the first match, restarting the subsequent searches from the end of the previous match
+            //m(multi - line)     ^and $ will match the start and end of a line, instead of the whole string
+            //i(insensitive)      makes the whole expression case-insensitive(for instance / aBc / i would match AbC)
+
+            //Bracket expressions — []
+            //[abc]                      matches a string that has either an a or a b or a c -> is the same as a | b | c
+            //[a - c]                    same as previous
+            //[a - fA - F0 - 9]          a string that represents a single hexadecimal digit, case insensitively
+
+            //OR operator — | 
+            //a(b | c)     matches a string that has a followed by b or c(and captures b or c)
+            //ab | c matches a string that is made of ab or c 
+            string pattern = @"[a-z0-9]+\.?[a-z0-9]+@[a-z]+\.[a-z]{2,3}";
+            Regex regex = new Regex(pattern); //regex class that use regex properties and methods 
+            string email = "my email is kappa123@wp.pl, is it cool?";
+            Console.WriteLine(email);
+            Console.WriteLine("email = " + regex.Match(email)); //Regex match 
+
+            Console.ReadKey();
+
+        }
+
+    }
+}
