@@ -1,0 +1,44 @@
+using System;
+internal class Exercise
+{
+    /* Write a C# Sharp program to swap a two digit given number and check whether the given number is greater than its swap value.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your number: ");
+        string input = Console.ReadLine();
+        if(Int32.TryParse(input, out int noInput))
+        {
+            if(input.Length == 2)
+            {
+                var output = Ex81(noInput);
+                Console.WriteLine("Reversed number of {0} is {1} and given number is greater than its swap value is {2}", input, output.Item1, output.Item2);
+            }
+            else
+            {
+                Console.WriteLine("You're supposed to enter two digit number!");
+            }
+        }
+        else
+        {
+            Console.WriteLine("You're supposed to enter number!");
+        }
+        Console.ReadKey();
+    }
+
+    public static (int, bool) Ex81(int input)
+    {
+        int reversedNumber = 0;
+        while(input > 0)
+        {
+            reversedNumber *= 10;
+            reversedNumber += input % 10;
+            input /= 10;
+        }
+        return (reversedNumber, reversedNumber < input); 
+    }
+
+
+
+}
