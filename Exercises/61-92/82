@@ -7,12 +7,17 @@ internal class Exercise
 
     static void Main(string[] args)
     {
-       
+        Console.Write("Enter your sentence: ");
+        string input = Console.ReadLine();
+        Console.WriteLine("Your sentence without digits is {0}", Ex82(input));
+        Console.ReadKey();
     }
 
-    public static string Ex82(int input)
+    public static string Ex82(string input)
     {
-       return input.Reg
+        Regex regex = new Regex(@"([^A-Za-z])+");
+        return regex.Replace(input, "");
+        
     }
 
 
