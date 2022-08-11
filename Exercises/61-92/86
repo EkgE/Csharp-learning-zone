@@ -1,0 +1,36 @@
+using System;
+using System.Text.RegularExpressions;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to get the number of letters and digits in a given string.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your string: ");
+        string input = Console.ReadLine();
+        var outputs = Ex86(input);
+        Console.WriteLine("Number of letters a given string is {0}", outputs.Item1);
+        Console.WriteLine("Number of digits a given string is {0}", outputs.Item2);
+        Console.ReadKey();
+    }
+
+    public static (int, int) Ex86(string input)
+    {
+        Regex regexDig = new Regex(@"([a-zA-Z])+");
+        int noDigits = regexDig.Replace(input, "").Length;
+        Console.WriteLine(regexDig.Replace(input, ""));
+        Regex regexLet = new Regex(@"([^a-zA-Z])+");
+        Console.WriteLine(regexLet.Replace(input, ""));
+        int noLetters = regexLet.Replace(input,"").Length;
+        return (noLetters, noDigits);
+
+
+
+    }
+   
+}
+
+
+
