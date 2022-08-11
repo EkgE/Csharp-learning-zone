@@ -1,0 +1,50 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to count number of ones and zeros in the binary representation of a given integer.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your number: ");
+        string inputString = Console.ReadLine();
+        if(Int32.TryParse(inputString, out int inputInt))
+        {
+            var sums = Ex90(inputString);
+            Console.WriteLine("Number of 0 in binary representation of given integer is {0}", sums.Item1);
+            Console.WriteLine("Number of 1 in binary representation of given integer is {0}", sums.Item2);
+        }
+        else
+        {
+            Console.WriteLine("You're supposed to decimal number!");
+        }
+        Console.ReadKey();  
+
+
+    }
+
+    public static (int, int) Ex90(string input)
+    {
+        string converted = Convert.ToString(Convert.ToInt32(input), 2);
+        int sums0 = 0;
+        int sums1 = 0;
+        for(int i = 0; i < converted.Length; i++)
+        {
+            if (converted[i] == '0')
+            {
+                sums0++;
+            }
+            else if(converted[i] == '1')
+            {
+                sums1++;
+            }
+        }
+        return (sums0, sums1);
+    }
+
+
+}
+
+
+
