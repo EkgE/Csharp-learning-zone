@@ -1,0 +1,54 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to find the cumulative sum of an array of number.
+     */
+
+    static void Main(string[] args)
+    {
+        int[] arrayInput = CreatingArrays();
+        int[] arrayCumulative = Ex85(arrayInput);
+        PrintArray(arrayCumulative);
+        Console.ReadKey();
+    }
+
+    public static int[] Ex85(int[] array)
+    {
+        int[] returnedArr = new int[array.Length];
+        int sum = 0;
+        for(int i = 0; i < array.Length; i++)
+        {
+            sum += array[i];
+            returnedArr[i] = sum;
+        }
+        return returnedArr;
+
+        
+    }
+    public static void PrintArray(int[] array)
+    {
+        Console.WriteLine("Array is: ");
+        for(int i = 0; i < array.Length; i++)
+        {
+            Console.WriteLine("   item {0} at index {1}", array[i], i);
+
+        }
+    }
+    public static int[] CreatingArrays()
+    {
+        Console.Write("Enter length of array: ");
+        int lentgh = Convert.ToInt32(Console.ReadLine());
+        int[] arrayInt = new int[lentgh];
+        for (int i = 0; i < lentgh; i++)
+        {
+            Console.Write("Enter item in array at index {0}: ", i);
+            arrayInt[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        return arrayInt;
+    }
+
+
+
+
+}
