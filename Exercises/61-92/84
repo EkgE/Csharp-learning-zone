@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+internal class Exercise
+{
+    /* Write a C# Sharp program to get the index number of all lower case letters in a given string.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your string: ");
+        string input = Console.ReadLine();
+        List<int> indexes = Ex83(input);
+        string indexesCount = "";
+        foreach(int index in indexes)
+        {
+            indexesCount = indexesCount + index + " ";
+        }
+        Console.WriteLine("lower case letters on your string are placed at indexes {0}", indexesCount);
+        Console.ReadKey(); 
+    }
+
+    public static List<int> Ex83(string input)
+    {
+        List<int> indexes = new List<int>();
+        for(int i = 0; i < input.Length; i++)
+        {
+            if (input[i] >= 97 && input[i] <= 122)
+            {
+                indexes.Add(i);
+            }
+        }
+        return indexes;
+
+        
+    }
+
+
+
+}
