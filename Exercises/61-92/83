@@ -1,0 +1,25 @@
+using System;
+using System.Text.RegularExpressions;
+internal class Exercise
+{
+    /* Write a C# Sharp program to remove all vowels from a given string.
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter your sentence: ");
+        string input = Console.ReadLine();
+        Console.WriteLine("Your sentence without vowels is {0}", Ex82(input));
+        Console.ReadKey();
+    }
+
+    public static string Ex83(string input)
+    {
+        Regex regex = new Regex(@"([aeiouAEIOU])+");
+        return regex.Replace(input, "");
+        
+    }
+
+
+
+}
