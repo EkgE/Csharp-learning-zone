@@ -9,7 +9,7 @@ internal class Exercise
     {
         Console.Write("Enter your string: ");
         string input = Console.ReadLine();
-        List<int> indexes = Ex83(input);
+        List<int> indexes = Ex84(input);
         string indexesCount = "";
         foreach(int index in indexes)
         {
@@ -19,7 +19,7 @@ internal class Exercise
         Console.ReadKey(); 
     }
 
-    public static List<int> Ex83(string input)
+    public static List<int> Ex84(string input)
     {
         List<int> indexes = new List<int>();
         for(int i = 0; i < input.Length; i++)
