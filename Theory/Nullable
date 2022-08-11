@@ -1,0 +1,51 @@
+using System;
+
+internal class Nullable
+{
+    /* Write a C# Sharp program to find the next prime number of a given number. If the given number is a prime number, return the number.
+     */
+
+    static void Main(string[] args)
+    {
+        //The Nullable type allows you to assign a null value to a variable.
+        //Nullable type is also useful to represent undefined value
+
+        Nullable<int> intNullableVar = null; //syntax
+        int? intNullableVar2 = 10; //shortcut
+
+        Console.WriteLine("intNullableVar.GetValueOrDefault called = {0}", intNullableVar.GetValueOrDefault());
+        //way of accesing data stored by nullable variables 
+        //if called var store null, default value will be returned 
+
+        Console.WriteLine("intNullableVar2.Value called = {0}", intNullableVar2.Value);
+        //it also allow to acces values, but when called if is null will give exception
+
+        Console.WriteLine("intNullableVar.HasValue called = {0}", intNullableVar.HasValue);
+        //If the object assigned with a value, then it will return “True” and if the object is assigned to null, then it will return “False”
+
+        Console.WriteLine("intNullableVar != null ? true : false = {0}", (intNullableVar != null ? true : false));
+        //another way of checking if var has null value
+
+        //?? allows to use specific value as default , if null is called 
+        //The null-coalescing operator ?? returns the value of its left-hand operand if it isn't null; otherwise, it evaluates the right-hand operand and returns its result
+        int intNullableType3 = intNullableVar ?? 20;
+        Console.WriteLine("intNullableType3 = intNullableVar ?? 20 = {0}", intNullableType3);
+
+        //operators on nullable values 
+        Console.WriteLine("null >= null = {0}", null, null >= null);
+        Console.WriteLine("null == null is {0}", null == null);
+        Console.WriteLine("null != null is {0}", null != null);
+        Console.WriteLine("null == value is {0}", null == 10);
+        Console.WriteLine("null != value is {0}", null != 10);
+        Console.WriteLine("null < value is {0}", null < 10);
+        Console.WriteLine("null >=  value {0}", null >= 10);
+        Console.ReadKey();
+
+        //??= null-coalescing assignment operator ??= assigns the value of its right-hand operand to its left-hand operand only if the left-hand operand evaluates to null.
+
+    }
+
+}
+
+
+
