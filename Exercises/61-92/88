@@ -1,0 +1,31 @@
+using System;
+
+internal class Exercise
+{
+    /* Write a C# Sharp program to find the sum of the interior angles (in degrees) of a given Polygon. Input number of straight line(s).
+     */
+
+    static void Main(string[] args)
+    {
+        Console.Write("Enter number of sides in polygon: ");
+        int lines = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(Ex88(lines) != -1 ? "sum of interior angles of inputed polygon equals " + Ex88(lines) : "Polygon can't have less sides than 3 ");
+        Console.ReadKey();
+    }
+
+    public static int Ex88(int sides)
+    {
+        if(sides < 3)
+        {
+            return -1;
+        }
+        else
+        {
+            return (sides - 2) * 180;
+        }
+    }
+   
+}
+
+
+
