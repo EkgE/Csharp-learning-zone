@@ -2,8 +2,6 @@ using System;
 
 internal class Nullable
 {
-    /* Write a C# Sharp program to find the next prime number of a given number. If the given number is a prime number, return the number.
-     */
 
     static void Main(string[] args)
     {
