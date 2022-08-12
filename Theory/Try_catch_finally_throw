@@ -1,0 +1,145 @@
+using System;
+
+internal class Try_catch_finally_throw
+{
+
+
+    static void Main(string[] args)
+    {
+        /* Exception is defined as an event that occurs during the execution of a program that is unexpected by the program code */
+        /* 
+        try	    Used to define a try block. This block holds the code that may throw an exception.
+        catch	Used to define a catch block. This block catches the exception thrown by the try block.
+        finally	Used to define the finally block. This block holds the default code.
+        throw	Used to throw an exception manually.
+        */
+
+        int x = 2;
+        int[] array = { 2, 3 };
+        try
+        {
+            Console.WriteLine(" x / 0 = {0}", x / 0);
+            //this wont't appear because DivideByZeroException appear
+            Console.WriteLine("array[3] = {0}", array[3]);
+        }
+        catch (DivideByZeroException) //name of the exception that we're trying to counter
+        {
+            Console.WriteLine("DivideByZeroException appear"); //action provided, when catched specific exception
+        } 
+        catch (IndexOutOfRangeException) //won't execute, even if also appear becase DivideByZeroException is fist 
+        {
+            Console.WriteLine("IndexOutOfRangeException appear"); //another exception catch
+            //best practise is to make many of catch blocks, to make code more flexible in avoiding crushes
+            //catch blocks with the same exception type are not allowed
+            //exception handlers should be make from the most common and expected, to less common
+            // because the are  examined in order
+        }
+        catch (Exception ex) //catch (Exception ex) is the same as catch alone 
+        {
+            Console.WriteLine("Exception {0}", ex);
+            //this one will catch every exception 
+            //catch block with the base Exception type must be the last block
+        }
+        finally 
+        {
+            Console.WriteLine("Finally executed!");
+            //finally always execute, no matter what is the outcome and if exception appear 
+            //it's default 
+        }
+
+        var zero = 0;
+        try
+        {
+            try
+            {
+                Console.WriteLine("100 / zero = {0} ", 100 / zero); 
+            }
+            catch(NullReferenceException) //this won't execute, because inner catch don't match type of exception
+            {
+                Console.WriteLine("Inner catch");
+            }
+        }
+        catch //this will execute, because catch alone catch all exceptions 
+        {
+            Console.WriteLine("Outer catch");
+        }
+
+
+        //throw keyword allow to manually raise exception
+        //Any type of exceptions which is derived from Exception class can be raised using the throw keyword
+        //throw keyword cant be used with instance of classes, that don't derived from Exception class
+
+        try
+        {
+            throw new newException();
+        }
+        catch
+        {
+            Console.WriteLine("newException was throwed");
+        }
+
+        //throw exception with the conditional operator
+        //string[] array2 = new string[0];
+        //string arg = array2.Length >= 1 ? array2[0] : throw new ArgumentException("You've tried to assing first value from empty string array to variable, it's prohibited");
+        //System.ArgumentException: 'You've tried to assing first value from empty string array to variable, it's prohibited'
+
+        try
+        {
+            Console.WriteLine("100 / zero = {0} ", 100 / zero);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Exception appear at  " + ex.StackTrace);
+            //StackTrace return string that represent string with information about exception
+        }
+
+
+        //this one called method1, that check if number is less then 10, if it is no exception appear, if isn't customized newException appear
+        int z = 5;
+        int y = 15;
+        try
+        {
+            method1(z);
+        }
+        catch 
+        { } 
+
+        try
+        {
+            method1(y);
+        }
+        catch
+        { }
+
+
+
+        Console.ReadKey();
+
+    }
+   
+    static public void method1(int input) //method that use personalized exception
+    {
+        Console.WriteLine("Method1 called with argument {0}", input);
+        if (input > 10)
+        {
+            throw new newException();
+        }
+        else
+        {
+            Console.WriteLine("No exception appeared after calling this method");
+        }
+    }
+
+
+}
+class newException : Exception //customized exception inherited by Exception class
+{
+    public newException() //making new exception, that can be throwed 
+    {
+        Console.WriteLine("NewException appeared");
+    }
+}
+
+
+
+
