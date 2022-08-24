@@ -1,0 +1,58 @@
+using System;
+namespace Test
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int[] array = new int[1000001];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = i;
+            }
+            Console.WriteLine("Numbers of even number using evenNumberCount = {0}", evenNumberCount(array));
+            Console.WriteLine("Numbers of even number using evenNumberCount2 = {0}", evenNumberCount2(array));
+            printEvens(array);
+
+            Console.ReadKey();
+        }
+
+        private static int evenNumberCount(int[] array) //if item of array is equal it's index
+        {
+            return array.Length / 2 + 1;
+        }
+
+        private static int evenNumberCount2(int[] array) //if items aren't equal theirs indexes
+        {
+            int count = 0;
+            for(int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 == 0)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        private static void printEvens(int[] array)
+        {
+            string result = "";
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 == 0)
+                {
+                    result += array[i];
+                    if(i != array.Length - 1)
+                    {
+                        result += ", ";
+                    }
+                }
+            }
+            Console.WriteLine("All evens number within array = {0}", result);
+        }
+
+
+    }
+}
