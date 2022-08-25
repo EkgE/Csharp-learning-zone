@@ -1,0 +1,112 @@
+using System;
+namespace Test
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            Console.Write("Enter your number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter base of prefix: ");
+            int basePref = Convert.ToInt32(Console.ReadLine());
+            if (basePref > 24 || basePref < -24) 
+            {
+                Console.Write("Invalid base");
+            }
+            else
+            {
+                Console.WriteLine("Your number {0} is equal {1} of {2} ", number, MetricPrefixChange(number, basePref), PrefixName(basePref));
+            }
+            Console.ReadKey();
+        }
+
+
+
+        /// <summary>
+        ///  return double number, based of inputed number and base of prefix. 
+        ///  where <paramref name="number"/> is inputed number of type int and 
+        ///  <paramref name="tenPower"/> is base of prefix
+        /// </summary>
+        private static double MetricPrefixChange(int number, int tenPower)
+        {
+            if(tenPower > 24 || tenPower < -24) { return -1; } //validation
+            return number / Math.Pow(10, tenPower);
+        }
+
+        /// <summary>
+        ///  return name of the prefix as string based on it's base
+        ///  <paramref name="tenPower"/> is base of prefix
+        /// </summary>
+        private static string PrefixName(int tenPower)
+        {
+            if (tenPower > 24 || tenPower < -24) { return "invalid"; } //validation
+            int power = (tenPower < 3 && tenPower > -3) ? tenPower : tenPower - (tenPower % 3); //Names of prefixes jump between 10^3
+            switch (power)
+            {
+                case 24: return "yotta";
+                    break;
+                case 21:
+                    return "zetta";
+                    break;
+                case 18:
+                    return "exa";
+                    break;
+                case 15:
+                    return "peta";
+                    break;
+                case 12:
+                    return "tera";
+                    break;
+                case 9:
+                    return "giga";
+                    break;
+                case 6:
+                    return "mega";
+                    break;
+                case 3:
+                    return "kilo";
+                    break;
+                case 2:
+                    return "hecto";
+                    break;
+                case 1:
+                    return "deca";
+                    break;
+                case -1:
+                    return "deci";
+                    break;
+                case -2:
+                    return "centi";
+                    break;
+                case -3:
+                    return "mili";
+                    break;
+                case -6:
+                    return "micro";
+                    break;
+                case -9:
+                    return "nano";
+                    break;
+                case -12:
+                    return "pico";
+                    break;
+                case -15:
+                    return "femto";
+                    break;
+                case -18:
+                    return "atto";
+                    break;
+                case -21:
+                    return "zepto";
+                    break;
+                case -24:
+                    return "yocto";
+                    break;
+                default: return "";
+            }
+        }
+
+       
+
+    }
+}
