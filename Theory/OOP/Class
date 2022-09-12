@@ -1,0 +1,32 @@
+using System;
+namespace Theory
+{
+    internal class Classes
+    {
+        private static void Main(string[] args)
+        {
+            Example example1 = new Example(); /*new operator instantiates a class by allocating memory for a
+                                              new object and returning a reference to that memory. The new operator also invokes the class constructor. */
+            //instantiating a class is to declare an object 
+            //class is a blue print, by instantiating means using it to made new specific instance, based on that blue print  
+        }
+    }
+     class Example
+    //class is a user-defined blueprint or prototype from which objects are created
+    //class declaration contains only a keyword class, followed by an identifier(name)
+    /*
+     * Modifiers: A class can be public or internal, default modifier of the class is internal
+     * Keyword class: A class keyword is used to declare the type class
+     * Class Identifier: The variable of type class is provided. The identifier(or name of the class) should begin with an initial letter which should be capitalized by convention.
+     * Base class or Super class: The name of the class’s parent (superclass), if any, preceded by the : (colon) This is optional
+     * Interfaces: A comma-separated list of interfaces implemented by the class, if any, preceded by the : (colon). A class can implement more than one interface. This is optional
+     * Body: The class body is surrounded by { } (curly braces).
+    */
+    {
+        int field1; //Fields are variables that provide the state of the class and its objects
+        public void method1() // Methods are used to implement the behavior of the class and its objects
+        {
+
+        }
+    }
+}
