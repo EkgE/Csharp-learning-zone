@@ -1,0 +1,173 @@
+using System;
+namespace Test
+{
+    internal class Methods
+    //Method is a collection of statements 
+    //Methods allow: 
+    /* improve structurization of program 
+     * enhance the readability of the code.
+     * reuse the existing code
+     * optimizes the execution time and memory space
+    */
+    {
+        private static void Main(string[] args)
+        {
+            MethodExample(15); // Method Invocation/Method Calling 
+            Console.WriteLine();
+            MethodExample2();
+            Console.WriteLine();
+            int variable1 = MethodExample3(); //Method with return type can used as source of data used by other elements 
+            Console.WriteLine();
+
+            Overload(125);
+            Overload("Kappa");
+            Overload("Kappa", 125);
+
+
+
+            #region Parameters 
+            Named(y: 15, x: 20); //named
+            Console.WriteLine();
+
+            int x = 15;
+            Console.WriteLine($"x value before passing to refMethod = {x}");
+            refMethod(ref x);
+            Console.WriteLine($"x value after passing to refMethod = {x}");
+            Console.WriteLine();
+
+            int y;
+            outMethod(out y);
+            Console.WriteLine($"y value after passing to outMethod = {y}");
+            Console.WriteLine();
+
+            Optional(x);
+            Optional(x, "custom");
+            Console.WriteLine();
+
+            Dynamic(15);
+            Dynamic("Kappa");
+            Console.WriteLine();
+
+            Params(15, 30, 45, 25);
+            Params(20, 15);
+            Console.WriteLine();
+            #endregion
+            Console.ReadKey();
+        }
+
+        #region Construct
+        //Construct of method: 
+        /* Modifier: It defines access type of the method
+         * Return: It defines the data type returned by the method. Exception is void, which return nothing
+         * Body: tasks performed by the method during its execution, closed within curly braces 
+         * Parameter: input parameters, preceded with their data type, within the enclosed parenthesis
+         */
+        static void MethodExample(int parameter) //method returning nothing, using parameter as argument 
+        {
+            Console.WriteLine($"methodExample called used parameter: {parameter}");
+        }
+        static int MethodExample2() //method returning data type of int, without arguments 
+        {
+            Console.WriteLine("methodExample2 called, without parameters");
+            return 10; //return: key word used when data type should be returned when method called 
+        }
+        static int MethodExample3() //method returning data type of int, without arguments 
+        {
+            Console.WriteLine("methodExample3 called, without parameters, but returning data");
+            return 10; //return: key word used when data type should be returned when method called 
+        }
+        #endregion
+        #region Naming rules 
+        //Noun or a verb
+        //it must describe the purpose of that method
+        //starting with capital letter
+        #endregion
+        #region Overloading
+        //Overloading: redefine a function in more than one form,  C# can distinguish the methods with different method signatures
+        //methods can have the same name but with different parameters (the number of the parameters, order of the parameters, and data types of the parameters)
+
+        public static void Overload(int argument)
+        {
+            Console.WriteLine($"Overload method called with parameter of type: {argument.GetType()}");
+        }
+        public static void Overload(string argument)
+        {
+            Console.WriteLine($"Overload method called with parameter of type: {argument.GetType()}");
+        }
+        public static void Overload(string argument1, int argument2)
+        {
+            Console.WriteLine($"Overload method called with parameter of type: {argument1.GetType()} and {argument2.GetType()}");
+        }
+
+        #endregion
+        #region Parameters
+        /*C# contains the following types of Method Parameters:
+
+        *Named Parameters
+        *Ref Parameters
+        *Out Parameters
+        *Default or Optional Parameters
+        *Dynamic Parameters
+        *Params
+        */
+
+        //named parameters allow to specify the value of the parameter according to their names not their order in the method
+        static void Named(int x, int y)
+        {
+            Console.WriteLine($"Named method called using parameters: x: {x}, y: {y}");
+        }
+
+        //ref 
+        //passing the value types by reference
+        //any changes made in this argument in the method will reflect in that variable
+        //parameters have to initialize before it pass to ref, but doesn't have to be assigned within body of function
+        static void refMethod(ref int x)
+        {
+            Console.WriteLine($"refMethod called with parameter x: {x}");
+            x++;
+        }
+
+        //Out
+        //passing the value types by reference
+        //any changes made in this argument in the method will reflect in that variable
+        //value have to be assigned to parameter with out keyword in function body, but variable don't have to be initialized before calling method
+        static void outMethod(out int y)
+        {
+            y = 10;
+            Console.WriteLine($"refMethod called with parameter y: {y}");
+            y++;
+        }
+
+        //Default and optional 
+        //optional parameters, it is not necessary to pass all the parameters in the method
+        //optional parameters have to be at the end of params list
+        static void Optional(int x, string y = "default")
+        {
+            Console.WriteLine($"optional method called with parameters x: {x}, y: {y}");
+        }
+
+        //Dynamic
+        //compiler does not check the type of the dynamic type variable at compile-time,
+        //instead of this, the compiler gets the type at the run time
+
+        static void Dynamic(dynamic x)
+        {
+            Console.WriteLine($"Dynamic method called with parameter x: {x} and type {x.GetType()}");
+        }
+
+        //Params 
+        //allow to pass any variable number of arguments
+        //Only one variable of params can be used in a method
+        //The parameter type must be a single-dimensional array
+        static void Params(params int[] x)
+        {
+            Console.WriteLine($"Params method called with {x.Length} arguments");
+        }
+        #endregion
+
+
+
+
+    }
+}
+
