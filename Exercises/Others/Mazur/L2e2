@@ -1,0 +1,61 @@
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        public static void Main(string[] args)
+        {
+            /*3. Sortowanie przez zliczanie
+                    Źródła:
+                    http://www.algorytm.org/algorytmy-sortowania/sortowanie-przez-zliczanie-countingsort.html
+                    Napisz metodę realizującą sortowanie bąbelkowe na tablicy liczb typu int.*/
+
+            //TEST
+            int[] arrayExample = new int[] { 5, 1 , 2, 3, 1, 1, 0, 0, 10, 8, 3, 5 };
+            CountingSort(ref arrayExample);
+            for (int i = 0; i < arrayExample.Length; i++)
+            {
+                Console.Write(arrayExample[i] + " ");
+            }
+            Console.ReadKey();
+
+        }
+        public static void CountingSort(ref int[] array)
+        {
+            int[] freq = new int[GetMax(array) + 1]; //array mapped values(as index) with their frequency(ax values)
+            for (int i = 0; i < freq.Length; i++)
+            {
+                freq[i] = 0; //setting all indexes value to 0 
+            }
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                freq[array[i]]++; //counting occurrences of each value and bounding it to made array 
+            }
+
+            for (int i = 0, j = 0; i < freq.Length; i++)
+            {
+                while (freq[i] > 0) //it's true, while there is some occurrences of values 
+                {
+                    array[j] = i; // filling  derived array with those occurrences
+                    j++; 
+                    freq[i]--; // decreasing number of occurrences, until it's equal 0, which means all of them filled in derived array at j index 
+                }
+
+            }
+        }
+        public static int GetMax(int[] array) //Getting highest value from array
+        {
+            int max = array[0];
+            for(int i = 1; i < array.Length; i++)
+            {
+                if(max < array[i])
+                {
+                    max = array[i];
+                }
+            }
+            return max;
+        }
+    }
+}
