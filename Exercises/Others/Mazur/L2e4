@@ -1,0 +1,52 @@
+using System;
+using System.Text;
+namespace Test
+{
+    internal class Test
+
+    {
+        public static void Main(string[] args)
+        {
+            /*3. Konwersja camelCase do snake_case
+                 Napisz metodę realizującą konwersję tekstu w formacie camelCase do tekstu w formacie snake_case.
+            */
+
+            
+
+        }
+
+        public static string ToSnakeCase(string input)
+        {
+            if(input == null)
+            {
+                throw new ArgumentNullException(); //validation null
+            }
+            if(input.Length < 2) //validation 1 character strings
+            {
+                return input.ToLower();
+            }
+            
+            var sb = new StringBuilder();
+            sb.Append(char.ToLowerInvariant(input[0])); //adding first element of string as lower case character 
+            //first character can't be change into snake case, even if its upper case 
+            for (int i = 0; i < input.Length; i++) //iterating through string 
+                                                   //and adding each character to sb string
+                                                   //if character is upper case, then firstly adding _ and changing char to lower
+            {
+                char x = input[i];
+                if (char.IsUpper(x))
+                {
+                    sb.Append("_");
+                    sb.Append(char.ToLowerInvariant(x));
+                }
+                else
+                {
+                    sb.Append(x);
+                }
+            }
+            return sb.ToString();
+        }
+
+
+    }
+}
