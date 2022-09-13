@@ -1,0 +1,212 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        public static void Main(string[] args)
+        {
+            /*Macierze
+                    Źródła:
+                    https://pl.wikipedia.org/wiki/Dodawanie_macierzy
+                    https://pl.wikipedia.org/wiki/Mno%C5%BCenie_przez_skalar
+                    https://pl.wikipedia.org/wiki/Mno%C5%BCenie_macierzy
+                    https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/creating-and-throwing-exceptions
+                    Napisz klasę do operacji na macierzach.
+                    Klasa ma realizować następujące operacje (A, B – macierze; x – liczba):
+                    • Wyświetlanie macierzy w konsoli
+                    • Dodawanie (A + B)
+                    • Odejmowanie (A - B)
+                    • Mnożenie przez skalar (A * x)
+                    • Mnożenie skalarne (A * B)
+                    • Transpozycja (~ A)
+                    • *Mnożenie wektorowe (A % B)
+                    * - trudniejsze
+                    Każda operacja ma być sprawdzana pod kątem możliwości jej wykonania. Jeżeli nie jest możliwe wykonanie danej operacji, należy użyć wyjątku.
+                    Wykorzystaj przeciążanie operatorów i klasę generyczną do określenia typu elementów zawartych w macierzy.
+            */
+
+            //TEST
+            Matrix<double> kappa = new Matrix<double>(new double[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } });
+            Matrix<double>.ConsoleOutput(kappa); //displaying test
+            Console.WriteLine();
+
+            Matrix<double> omega = new Matrix<double>(new double[,] { { 2, 2, 2 }, { 2, 2, 2, }, { 2, 2, 2 }});
+            Matrix<double>.ConsoleOutput(omega);
+            Console.WriteLine();
+
+            Console.WriteLine("addition");
+            Matrix<double>.ConsoleOutput(kappa + omega); //addition
+            Console.WriteLine();
+
+            Console.WriteLine("subtraction");
+            Matrix<double>.ConsoleOutput(kappa - omega); //subtraction 
+            Console.WriteLine();
+
+            Console.WriteLine("multiplying by skalar");
+            Matrix<double>.ConsoleOutput(kappa * 5 ); //multiplying by skalar
+            Console.WriteLine();
+
+            Console.WriteLine("multiplying by another matrix");
+            Matrix<double>.ConsoleOutput(kappa * omega); //multiplying by another matrix
+            Console.WriteLine();
+
+            Matrix<double> alfa = new Matrix<double>(new double[,] { { 1, 0, 2 }, { -1, 3, 1 }});
+            Matrix<double>.ConsoleOutput(alfa);
+            Console.WriteLine();
+            Matrix<double> beta = new Matrix<double>(new double[,] { { 3, 1 }, { 2, 1 }, { 1, 0 } });
+            Matrix<double>.ConsoleOutput(beta);
+            Console.WriteLine();
+
+            Console.WriteLine("multiplying by another matrix");
+            Matrix<double>.ConsoleOutput(alfa * beta); 
+            Console.WriteLine();
+
+            Console.WriteLine("transpose");
+            Matrix<double>.ConsoleOutput(~kappa);
+            Console.WriteLine();
+            Matrix<double>.ConsoleOutput(~alfa);
+            Console.WriteLine();
+            
+            Console.ReadKey();
+        }
+        class Matrix<T>
+        {
+            private T[,] matrixArr; //Matrix field
+            public Matrix(T[,] matrixArr)
+            {
+                this.matrixArr = matrixArr;
+            } //Matrix constructor
+
+            public static void ConsoleOutput(Matrix<T> x) //Displaying matrix in console
+            {
+                for (int i = 0; i < x.matrixArr.GetLength(0); i++)
+                {
+                    Console.Write('[');
+                    for (int j = 0; j < x.matrixArr.GetLength(1); j++)
+                    {
+                        Console.Write($"" +
+                            $" {x.matrixArr[i, j]} ");
+                    }
+                    Console.Write(']');
+                    Console.WriteLine();
+                }
+            }
+            public static Matrix<T> operator +(Matrix<T> x, Matrix<T> y)//Addition of matrices
+            {
+                T[,] matrix = new T[x.matrixArr.GetLength(0), x.matrixArr.GetLength(1)]; //base array 
+
+                try
+                {
+                    for (int i = 0; i < x.matrixArr.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < x.matrixArr.GetLength(1); j++)
+                        {
+                            matrix[i, j] = (dynamic)x.matrixArr[i, j] + y.matrixArr[i, j];
+                        }
+                    }
+                    return new Matrix<T>(matrix);
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new MatricesIncompatibleException();
+                }
+            }
+
+            public static Matrix<T> operator -(Matrix<T> x, Matrix<T> y)//Subtraction of matrices
+            {
+                T[,] matrix = new T[x.matrixArr.GetLength(0), x.matrixArr.GetLength(1)]; //base array 
+
+                try
+                {
+                    for (int i = 0; i < x.matrixArr.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < x.matrixArr.GetLength(1); j++)
+                        {
+                            matrix[i, j] = (dynamic)x.matrixArr[i, j] - y.matrixArr[i, j];
+                        }
+                    }
+                    return new Matrix<T>(matrix);
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new MatricesIncompatibleException();
+                }
+            }
+            public static Matrix<T> operator *(Matrix<T> x, double y)//Multiplying by scalar
+            {
+                T[,] matrix = new T[x.matrixArr.GetLength(0), x.matrixArr.GetLength(1)]; //base array 
+
+
+                for (int i = 0; i < x.matrixArr.GetLength(0); i++)
+                {
+                    for (int j = 0; j < x.matrixArr.GetLength(1); j++)
+                    {
+                        matrix[i, j] = (dynamic)x.matrixArr[i, j] * y;
+                    }
+                }
+                return new Matrix<T>(matrix);
+            }
+            public static Matrix<T> operator *(Matrix<T> x, Matrix<T> y)//Multiplying by another matrix
+            {
+                int rowX = x.matrixArr.GetLength(0);
+                int colX = x.matrixArr.GetLength(1);
+                int rowY = y.matrixArr.GetLength(0);
+                int colY = y.matrixArr.GetLength(1);
+
+                if (colX != rowY) //validation if nr of columns of first matrix is equal to nr of rows of second matrix
+                {
+                    throw new MatricesIncompatibleException(true);
+                }
+
+                T[,] matrix = new T[rowX, colY]; //base matrix
+                for (int i = 0; i < rowX; i++)
+                {
+                    for (int j = 0; j < colY; j++)
+                    {
+                        var temp = 0;
+                        for (int k = 0; k < colX; k++)
+                        {
+                            temp += (dynamic)x.matrixArr[i, k] * y.matrixArr[k, j];
+                        }
+                        matrix[i, j] = (dynamic)temp;
+                    }
+                }
+                return new Matrix<T>(matrix);
+
+            }
+            public static Matrix<T> operator ~(Matrix<T> x)
+            {
+                int rowX = x.matrixArr.GetLength(0);
+                int colX = x.matrixArr.GetLength(1);
+                //if(rowX == colX)
+
+                T[,] matrix = new T[colX, rowX];
+                for (int i = 0; i < rowX; i++)
+                {
+                    for (int j = 0; j < colX; j++)
+                    {
+                        matrix[j, i] = (dynamic)x.matrixArr[i, j];
+                    }
+                }
+                return new Matrix<T>(matrix);
+
+            }//Transpose
+
+
+            public class MatricesIncompatibleException : Exception
+            {
+                public MatricesIncompatibleException()
+                {
+                    Console.WriteLine("Matrices aren't equal, can't be used within this equation");
+                }
+                public MatricesIncompatibleException(bool x)
+                {
+                    Console.WriteLine("Number of columns of first matrix isn't equal number of rows of second matrix ");
+                }
+            } //Exception used in Matrix class 
+        }
+    }
+
+}
