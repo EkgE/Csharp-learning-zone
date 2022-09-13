@@ -1,0 +1,110 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        public static void Main(string[] args)
+        {
+            /*Liczby zespolone
+                Źródła:
+                https://pl.wikipedia.org/wiki/Liczby_zespolone#Posta%C4%87_algebraiczna_(kanoniczna)
+                https://pl.wikipedia.org/wiki/Sprz%C4%99%C5%BCenie_zespolone
+                https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_bezwzgl%C4%99dna#Liczby_zespolone
+                https://pl.wikipedia.org/wiki/Argument_liczby_zespolonej
+
+                Napisz klasę do operacji na liczbach zespolonych.
+                Klasa ma realizować następujące operacje (z, x – liczby zespolone):
+                • Wyświetlanie liczby zespolonej w konsoli
+                • Dodawanie (z + x)
+                • Odejmowanie (z - x)
+                • Mnożenie (z * x)
+                • Dzielenie (z / x)
+                • Sprzężenie (~ z)
+                • Zwrócenie części rzeczywistej (Re(z))
+                • Zwrócenie części urojonej (Im(z))
+                • Moduł liczby zespolonej (Mod(z))
+                • Argument liczby zespolonej (Angle(z))
+                Wykorzystaj przeciążanie operatorów.
+            */
+            ComplexNumber x = new ComplexNumber(3, 4);
+            ComplexNumber y = new ComplexNumber(2, 3);
+            Console.WriteLine(ComplexNumber.Angle(x));
+
+            Console.ReadKey();
+            
+        }
+    }
+    class ComplexNumber
+    {
+        private double real { get; set; }
+        private double imaginary { get; set; }
+        public ComplexNumber(double real, double imaginary)
+        {
+            this.real = real;
+            this.imaginary = imaginary;
+        }   
+        public void ConsoleOutput()
+        {
+            string output = imaginary >= 0 ? ($"{real} + {imaginary}i") : $"{real} - {Math.Abs(imaginary)}i";
+            Console.WriteLine(output);
+        }
+        public static ComplexNumber operator +(ComplexNumber x, ComplexNumber y)
+        {
+            return new ComplexNumber(x.real + y.real, x.imaginary + y.imaginary);
+        }
+        public static ComplexNumber operator -(ComplexNumber x, ComplexNumber y)
+        {
+            return new ComplexNumber(x.real + y.real, x.imaginary + y.imaginary);
+        }
+        public static ComplexNumber operator *(ComplexNumber x, ComplexNumber y)
+        {
+            return new ComplexNumber(
+                x.real * y.real - x.imaginary * y.imaginary,
+                x.real * y.imaginary + x.imaginary * y.real
+                );
+        }
+        public static ComplexNumber operator /(ComplexNumber x, ComplexNumber y)
+        {
+            double a = x.real;
+            double b = x.imaginary;
+            double c = y.real;
+            double d = y.imaginary;
+
+            if (Math.Abs(d) < Math.Abs(c))
+            {
+                double doc = d / c;
+                return new ComplexNumber((a + b * doc) / (c + d * doc), (b - a * doc) / (c + d * doc));
+            }
+            else
+            {
+                double cod = c / d;
+                return new ComplexNumber((b + a * cod) / (d + c * cod), (-a + b * cod) / (d + c * cod));
+            }
+        }
+        public static ComplexNumber operator ~(ComplexNumber x)
+        {
+            return new ComplexNumber(x.real, x.imaginary * -1);
+        }
+        public static double Re(ComplexNumber x)
+        {
+            return x.real;
+        }
+        public static double Im(ComplexNumber x)
+        {
+            return x.imaginary;
+        }
+        public static double Mod(ComplexNumber x)
+        {
+            return Math.Sqrt(Math.Pow(x.real, 2) + Math.Pow(x.imaginary, 2));
+        }
+        public static double Angle(ComplexNumber x)
+        {
+            double radiansAgnle =  Math.Atan2(x.imaginary, x.real);
+            double degreesAngle = (180 / Math.PI) * radiansAgnle;
+            return degreesAngle;
+        }
+
+    }
+}
