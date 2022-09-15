@@ -1,0 +1,59 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        public static void Main(string[] args)
+        {
+
+        }
+        public class Properties
+        /* properties allow to encapsulate code within class 
+         * fields should be private to prevent unwated acces to them 
+         * properties behave like fields and method, which means acces to private field can be granted only by them on wanted conditions 
+         */
+        {
+            private int fieldInt { get; set; } //auto property syntax,
+            //it can be skipped, c# compiler is making default one like that
+            private int fieldFive { get; set; } = 5; //default value of this field is 5 
+            private string fieldString { get; set; } = string.Empty; // there default value of string is not null but a "", which is easier to use 
+            private string fieldString2
+            {
+                get { return fieldString2; }
+                set { fieldString2 = value; } //set accessor always have one parameter named value
+            } //this how properties works bellow curtain, it's not necessary to use it complicated like that
+            //it's read-write property
+            public string Name
+            {
+                get { return Name; }
+                set
+                {
+                    if (string.IsNullOrWhiteSpace(value))
+                        throw new ArgumentException("First name must not be blank");
+                    Name = value;
+                } //validation used to check if input string to a field is not null or white space 
+            }
+
+            public int fieldInt2 { get; private set; }
+            //this example shows that field can be read-only
+            //which means setting values to it can be granted only within class scope, while still value can be retried
+            //any access modifier can be used to property
+
+            public int fieldInt3 { get; }
+            //read-only property, that can be read but cant be reinitialized
+            //this allows to create field that can be made once while calling constructor  
+
+            public int fieldInt4 { get; init; }
+            //init allows to set value to a field only once, when constructor is called, and disallows any further resetting values to that field 
+
+            //properties can be used to return computed fields and values 
+            private int computedField1;
+            private int computedField2;
+            private int computedField { get { return computedField1 + computedField2; } } //computed value with property used to return 2 fields combined 
+        }
+
+    }
+
+}
