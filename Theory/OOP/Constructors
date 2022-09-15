@@ -1,0 +1,80 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        public static void Main(string[] args)
+        {
+            constructorClass x = new constructorClass(2, 5);
+            //calling constructor using new keyword 
+            Console.WriteLine(x.field1 + x.field2);
+
+            constructorClass2 y = new constructorClass2(); //default constructor
+            //constructorClass2 doesn't have constructor builded, so c# compiler used default constructor
+            Console.ReadKey();
+        }
+
+         public class constructorClass
+        {
+            public int field1;
+            public int field2;
+            static int field3;
+            public int field4;
+
+            /*constructor is a method whose name is the same as the name of its type, which includes:
+            - optional access modifier,
+            - method name
+            - parameter list; 
+            !does not include a return type
+            */
+            public constructorClass(int field1) 
+            {
+                this.field1 = field1;
+            }
+            public constructorClass(int field1, int field2)//another constructor, overwriting first one, but using two parameter
+            {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+            public constructorClass(int field1, int field2, int field4)
+                :this(field1, field2)//another constructor, using the second one with keyword this, to call constructor with 2 arguments and expand it's use of another field 
+            {
+                this.field4 = field4;
+
+
+                //Static constructors are parameterless
+                // if you don't provide a static constructor to initialize static fields, the C# compiler initializes static fields to their default value
+                static constructorClass()
+            {
+                field3 = 3;
+                
+            }
+        }
+        public class constructorClass2 //class without constructor will use default, public, parameterless constructor
+        {
+            int field1;
+        }
+
+        public class constructorInheritance : constructorClass //subclass of constructorClass class
+        {
+            int field;
+            public constructorInheritance(int field1, int field2, int field3)
+                :base(field1,field2) //base keyword is used to call base constructor class and fill it with argument provided within constructor of subclass
+            {
+                this.field = field3;
+            }
+        }
+        public class constructorInheritance2 : constructorClass2 //subclass of constructorClass2 class, that have no constructor
+        {
+            int field;
+            public constructorInheritance2(int field)
+                : base() //base keyword is not necessary, because parent class doesn't have constructor so default one will be called 
+            {
+                this.field = field;
+            }
+        }
+
+    }
+}
