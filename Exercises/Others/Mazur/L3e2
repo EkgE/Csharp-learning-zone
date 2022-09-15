@@ -32,9 +32,43 @@ namespace Test
         class Matrix<T>
         {
             private T[,] matrixArr; //Matrix field
+            private bool IsNumeric(Type input)
+            {
+                switch (Type.GetTypeCode(input))
+                {
+                    case TypeCode.Byte:
+                    case TypeCode.SByte:
+                    case TypeCode.UInt16:
+                    case TypeCode.UInt32:
+                    case TypeCode.UInt64:
+                    case TypeCode.Int16:
+                    case TypeCode.Int32:
+                    case TypeCode.Int64:
+                    case TypeCode.Decimal:
+                    case TypeCode.Double:
+                    case TypeCode.Single:
+                        return true;
+                    case TypeCode.Object:
+                        if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Nullable<>))
+                        {
+                            return IsNumeric(Nullable.GetUnderlyingType(input));
+                            //return IsNumeric(Nullable.GetUnderlyingType(type));
+                        }
+                        return false;
+                    default:
+                        return false;
+                }
+            }
             public Matrix(T[,] matrixArr)
             {
-                this.matrixArr = matrixArr;
+                if(IsNumeric(typeof(T)))
+                {
+                    this.matrixArr = matrixArr;
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
             } //Matrix constructor
 
             public static void ConsoleOutput(Matrix<T> x) //Displaying matrix in console
