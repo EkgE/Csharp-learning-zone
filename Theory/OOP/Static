@@ -1,0 +1,51 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        //static class can be used as a convenient container for sets of methods that just operate on input parameters and do not have to get or set any internal instance fields
+        //static constructor is only called one time, and a static class remains in memory for the lifetime of the application domain in which your program resides
+        public static void Main(string[] args)
+        {
+            Static.method1(); //accessing to static method 
+            Console.WriteLine($"Static int kappa = {Static.kappa}"); //accessing to field 
+        }
+        //static class cant be initialized 
+        //referring to members of static class is by name of the class.member
+        //Static classes are sealed =  cannot inherit a static class from another class
+        //static class can contain only static members 
+        class Static
+        {
+            public Static()
+            {
+                kappa = 15;
+                kappaa = "Pride kappa";
+            }
+            static public int kappa;
+            static string kappaa = "Pride";
+            //clasic members:
+            /* accessed by the class name
+             * Only one copy of a static member exists
+             * Static methods and properties cannot access non-static fields and events
+             * */
+            //Two common uses of static fields are:
+            // - to keep a count of the number of objects that have been instantiated
+            // - to store a value that must be shared among all instances.
+
+            //const static can't be done
+            //const are static be default and are accesed by name of the class
+            const int x1 = 15;
+            
+            //Static methods can be overloaded but not overridden, because they belong to the class, and not to any instance of the class
+            public static void method1() //sttic method 
+            {
+                Console.WriteLine("Method1 called ");
+                // static int x = 15; error
+                // static can't be done within scope
+            }
+        }
+
+    }
+}
