@@ -1,0 +1,31 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        /* 3. Silnia
+                Źródła:
+                https://pl.wikipedia.org/wiki/Silnia
+                Wykorzystując rekurencję, napisz metodę realizującą operację silni na danej liczbie.
+        */
+        public static void Main(string[] args)
+        {
+            Console.WriteLine(factorialReturn(7));
+            Console.ReadKey();
+        }
+        public static int factorialReturn(int number)
+        {
+           if(number == 1)
+            {
+                return 1;
+            }
+           else
+            {
+                return number * factorialReturn(number - 1);
+            }
+        }
+    }
+    
+}
