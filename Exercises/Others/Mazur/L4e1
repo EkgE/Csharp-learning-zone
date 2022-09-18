@@ -1,0 +1,26 @@
+
+using System;
+namespace Test
+{
+    internal class Test
+
+    {
+        /*  Wyświetlanie n pierwszych liczb naturalnych
+            Wykorzystując rekurencję, napisz metodę wyświetlającą pierwsze n liczb naturalnych.
+        */
+        public static void Main(string[] args)
+        {
+            WriteNaturalNum(15);
+            Console.ReadKey();
+        }
+        public static void WriteNaturalNum(int number)
+        {
+            if(number >= 1)
+            {
+                Console.WriteLine(number);
+                WriteNaturalNum(number - 1);
+            }
+        }
+    }
+    
+}
