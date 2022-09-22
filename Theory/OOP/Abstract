@@ -1,0 +1,45 @@
+using System;
+namespace Theory
+{
+    internal class Theory
+    {
+
+        public static void main(string[] args)
+        {
+
+        }
+    }
+    //Abstract modifier indicates the incomplete implementation 
+    //Abstraction classes are indicted only to be base class to derived classes
+    //Abstract classes can't be initialized 
+    //Struct can't inheritate astract
+    //A non-abstract class derived from an abstract class must include actual implementations of all inherited abstract methods and accessors.
+
+    abstract class Abstract
+    {
+        public abstract int x { get; set; } //abstract field with properties 
+        public int y { get; set; } //derived class is not obligated to override this field, because it doesn't have abstract access modifier
+        public abstract void someMethod();
+        //abstract method can't have body 
+        //abstract methods are permitted only within abstract classes 
+        //abstract methods are virtual by default and have to be overriden
+        public void anotherMethod() //this one ca't be overridden 
+        {
+            Console.WriteLine("Abstract class another method called");
+        }
+        
+    }
+    class Subclass : Abstract
+    {
+        public override int x //derived class is obligated to overide properties of parent's field 
+        {
+            get { return x; }
+            set { x = value; }
+        }
+        
+        public override void someMethod() //must be overridden 
+        {
+            Console.WriteLine("Some method called");
+        }
+    }
+}
