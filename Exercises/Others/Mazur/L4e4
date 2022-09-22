@@ -1,36 +1,58 @@
-        public static void Quicksort(double[] arr, int left, int right)
+
+using System;
+namespace Test
+{
+    internal class Test
+    {
+        /* 4. *Sortowanie szybkie (quicksort)
+                Źródła:
+                https://www.interviewbit.com/tutorial/quicksort-algorithm/
+                Napisz metodę realizującą algorytm rekurencyjnego sortowania szybkiego na tablicy wejściowej typu double.
+        */
+        public static void Main(string[] args)
         {
-            if (left < right)
-            {
-                int pivot = Partitioning(arr, left, right);
-                if (pivot > 1)
-                {
-                    Quicksort(arr, left, pivot - 1);
-                }
-                if (pivot + 1 < right)
-                {
-                    Quicksort(arr, pivot + 1, right);
-                }
-            }
+
         }
-        public static int Partitioning(double[] arr, int left, int right)
+        // arr is inputed array
+        // left is starting index
+        // right is ending index 
+        public static void Quicksort(double[] arr, int left, int right)
+        { 
+            if (left < right) //checks if inputed indexes are incompatible to prevent endless recursion
+            {
+                int pivot = Partitioning(arr, left, right); //getting pivot, which is element that divide array into two subarrays 
+                Quicksort(arr, left, pivot - 1); //sorting element before pivot
+                Quicksort(arr, pivot + 1, right); //sorting element after pivot
+            }
+            
+        }
+        public static int Partitioning(double[] arr, int left, int right) //sort array depending on left most element as pivot
+                                                                          //result is sorted array, which elements bigger than pivot are placed after it, and smaller ones are placed before 
         {
-            double pivot = arr[left]; 
+            double pivot = arr[left]; //placing pivot at left most index of inputed array (which is left parameter)
             while (true)
             {
-                while (arr[left] < pivot)
+                while (arr[left] < pivot)//checking each element from left if it's smaller than pivot
+                {
                     left++;
-                while (arr[right] > pivot)
+                } 
+                while (arr[right] > pivot)//checking each element from right if it's bigger than pivot
+                {
                     right--;
-                if (left < right)
+                } 
+                //this state executes when one of left element is greater than pivot and one of right element is smaller than pivot    
+                if (left < right) //checks if elements don't overlap
                 {
                     double temp = arr[right];
                     arr[right] = arr[left];
                     arr[left] = temp;
+                    //swapping wrongly placed elements 
                 }
                 else
                 {
-                    return right;
+                    return right; //returning position of pivot
                 }
             }
         }
+    }
+}
