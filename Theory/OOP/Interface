@@ -1,0 +1,56 @@
+using System;
+namespace Theory
+{
+    internal class Theory
+    {
+
+        public static void Main(string[] args)
+        {
+             derivedClass xd = new derivedClass();
+            xd.Bar2();
+            Console.ReadKey();
+        }
+    }
+    //Naming riles of interface: starting with I 
+    //Interface can have methods, properties, events, and indexers as its members but not fields 
+    //interfaces will contain only the declaration of the members
+    //The implementation of the interface’s members will be given by class who implements the interface implicitly
+    //Interfaces specify what a class must do and not how.
+    //Interfaces can’t have private members, by default all the members of Interface are public and abstract.
+    //Interfaces can't be initialized 
+    //Interfaces can't have constructors
+
+    interface IfirstInterface
+    {
+        void Foo(); // method within interface
+       // int kappa; //error 
+    }
+    interface IsecondInterface
+    {
+        void Bar(); //can't have access modifier in version below 8.0
+         public static void Bar2() //tbh i dont know why interface should have another access modifiers if they can't be initialized 
+            //and derived class dont override them 
+        {
+            Console.WriteLine("Bar2 called from interface");
+        }
+    }
+    //class can inherit from multiple interfaces
+    class derivedClass : IfirstInterface, IsecondInterface
+    {
+        void IfirstInterface.Foo() //derived class must implement this method 
+                                   //no ovverride keyword is needed 
+        {
+            Console.WriteLine("Foo");
+        }
+        void IsecondInterface.Bar()
+        {
+            Console.WriteLine("Bar");
+        }
+        public void Bar2()
+        {
+            Console.WriteLine("Bar2 called from class");
+        }
+
+    }
+}
+
