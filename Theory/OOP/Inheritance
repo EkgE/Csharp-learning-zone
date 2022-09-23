@@ -1,0 +1,61 @@
+using System;
+namespace Theory
+{
+    internal class Theory
+    {
+
+        public static void Main(string[] args)
+        {
+            animal an = new animal();
+            an.name = "animal";
+            an.Move(); //parent class is using his method 
+
+            mammal mam = new mammal();
+            mam.name = "mammal";
+            mam.Move();
+            mam.Milking();
+            
+            cat cat = new cat();
+            cat.name = "Franito";
+            cat.Move();
+            cat.Milking();
+            
+            Console.ReadLine();
+            
+
+        }
+        //Inheritance enables you to create new classes that reuse, extend, and modify the behavior defined in other classes
+        //class whose members are inherited is called the base class, and the class that inherits those members is called the derived class.
+        //A derived class can have only one direct base class
+        // inheritance is transitive, which means derived of derived of parent class, can use it's members
+        // derived class implicitly gains all the members of the base class, except for its constructors and finalizers
+            //derived class reuse members of base class, and can expand it adding own members 
+
+    }
+    public class animal
+    {
+        public string name { get; set; }
+        public void Move()
+        {
+            Console.WriteLine($"{this.name} is moving");
+        }
+
+    }
+    public class mammal : animal
+    {
+        public bool milk = true;
+        public void Milking()
+        {
+            Console.WriteLine($"Can {this.name} gives milk? {this.milk}");
+        }
+    }
+    public class cat : mammal
+    {
+        public void Moew()
+        {
+            Console.WriteLine($"{this.name} is meowing");
+        }
+
+    }
+
+}
