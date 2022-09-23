@@ -1,0 +1,87 @@
+using System;
+namespace Theory
+{
+    internal class Theory
+    {
+
+        public static void Main(string[] args)
+        {
+            Struct structure = new Struct(); //making instance of struct using default constructor 
+            Struct structure2 = new Struct(15, 15); //making instance of struct using constructor
+            Struct structure3; //declaring struct 
+            //structs can be declared without using new keyword 
+            //structure3 hovewer can't be used because of unassigned, like variable 
+            Struct structure4 = structure2;
+            structure2.x = 10;
+
+
+            //main difference of classes and struct is that class is reference type, while stuct value type
+            Console.WriteLine(structure4.x);
+            Console.WriteLine(structure2.x);
+            //stucture4 copied value of structure2, changing values of structure2 doesn't chage values of structure4, which means they do not reffer to same object 
+
+            Console.WriteLine(structure.x); //0 //not initialized
+            structure.Method();
+
+
+            //READONLY 
+            StructRO RO = new StructRO(15, 20, new List<double>());
+            RO.z.Add(15); //z is a list
+            //z can't be changed directly, but it's generic so methods using withing generic can be used 
+            RO.method1();
+
+            var RO1 = RO with { y = 20, z = new List<double>() };
+            //field z can't be used as it's read only without setters 
+            //with allows to produce a copy of a structure-type instance with the specified properties and fields modified
+
+        }
+    }
+    //Structs is value data type, that represent data structures 
+    //Structs can stores fields, events etc
+    //Structs don't support inheritance 
+    //Struct are passed by value, so when they passed evertying is copied
+        //to prevent this, ref/out can be used to avoid coping of big structures if not needed 
+    public struct Struct
+    {
+        public int x { get; set; } //fields inside struct 
+        public int y { get; set; }  
+        public Struct(int x, int y) //constructor of struct 
+        {
+            this.x = x;
+            this.y = y;
+        }
+        public void Method() //method inside struct 
+        {
+            Console.WriteLine("Struct method called");
+        }
+    }
+    public readonly struct StructRO //Rad only struct is immutable
+        //all members of this struct must be read only or innit 
+    {
+        public int x { get;  } //cant use set 
+        public int y { get; init; } //can use set, as it's declared while instantiation and can't be modified after 
+        public List<double> z { get; init } //generic List can be used as parameter, and also can't be set 
+        //hovewer LIst is refference type, so it can be modified using List methods 
+
+        public StructRO()
+        {
+            z = new List<double>();
+            y = 15;
+            x = 10;
+        }
+        public StructRO(int x, int y, List<double> z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public void method1()
+        {
+            Console.WriteLine("StructRO method called ");
+        }
+
+
+    }
+   
+}
