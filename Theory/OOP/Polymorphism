@@ -1,0 +1,83 @@
+using System;
+namespace Theory
+{
+    internal class Theory
+    {
+
+        public static void Main(string[] args)
+        {
+            List<Animal> animals = new List<Animal>
+            {
+                new Fish(6), new Dog(), new Bird()
+            };
+            foreach(Animal animal in animals)
+            {
+                animal.Move(); //each derived class override method move with their implementation
+                animal.SpeciesWrite();
+            }
+            Console.ReadLine();
+            
+
+        }
+        //Polymorphism = many shapes
+        //object of derived class can behave like base class in run time
+        //derived class can override base class, which allows them to provide their own implementation 
+        public class Animal
+        {
+            string species { get; init; }
+
+            public Animal(string species) //constructor of base class 
+            {
+                this.species = species;
+            }
+
+
+            public virtual void Move() //virtual means that it can be overriden 
+            {
+                Console.WriteLine("Animal is moving");
+            }
+            public void SpeciesWrite()
+            {
+                Console.WriteLine($"Species is {this.species}");
+            }
+        }
+        public class Fish : Animal
+        {
+            int fins; 
+            public Fish(int fins) : base("fish") //constructor of derived class and constructor of base class used 
+            {
+                this.fins = fins;
+            }
+            public override void Move() //override 
+            {
+                Console.WriteLine("Fish is swimming");
+            }
+        }
+        public class Bird : Animal
+        {
+            int wings; 
+            public Bird() : base("bird")
+            {
+                this.wings = 2;
+            }
+            public override void Move()
+            {
+                Console.WriteLine("Bird is flying");
+            }
+        }
+        public class Dog : Animal
+        {
+            int legs;
+            public Dog() : base("Dog")
+            {
+                this.legs = 4;
+            }
+
+            public override void Move()
+            {
+                Console.WriteLine("Dog is walking");
+            }
+        }
+    }
+
+}
